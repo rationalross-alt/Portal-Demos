@@ -8,21 +8,57 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
 
-  <!-- PASSCODE LOGIN SCREEN -->
+  <!-- PASSCODE LOGIN & SIGN-UP SCREEN -->
   <div id="login-screen" class="min-h-screen flex items-center justify-center p-6">
     <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl">
-      <div class="flex items-center gap-2.5 mb-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
-        <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold">WebCraft // Portal Access</span>
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+          <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold">WebCraft // Portal Access</span>
+        </div>
       </div>
-      <h1 class="text-2xl font-bold mb-2">Enter Access Passcode</h1>
-      <p class="text-sm text-slate-400 mb-6">Staff passcodes unlock approved client leads. Admin passcode unlocks the private QA review queue.</p>
-      <form id="login-form" class="space-y-4">
-        <input id="passcode-input" type="password" inputmode="numeric" maxlength="12" required autocomplete="off" placeholder="Enter passcode..."
-          class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-700 text-center text-lg tracking-widest font-mono focus:outline-none focus:border-indigo-500" />
-        <p id="login-err" class="text-xs text-rose-400 hidden">Invalid passcode. Check with Ross for your staff code.</p>
-        <button type="submit" id="unlock-btn" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3.5 rounded-xl font-semibold text-sm transition">Unlock Portal</button>
-      </form>
+
+      <div id="login-panel">
+        <h1 class="text-2xl font-bold mb-2">Enter Access Passcode</h1>
+        <p class="text-sm text-slate-400 mb-6">Your personal PIN shows your claimed leads and income without exposing other reps' work.</p>
+        <form id="login-form" class="space-y-4">
+          <input id="passcode-input" type="password" inputmode="numeric" maxlength="12" required autocomplete="off" placeholder="Enter your PIN..."
+            class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-700 text-center text-lg tracking-widest font-mono focus:outline-none focus:border-indigo-500" />
+          <p id="login-err" class="text-xs text-rose-400 hidden">Invalid PIN. Check with Ross or register a new staff account below.</p>
+          <button type="submit" id="unlock-btn" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3.5 rounded-xl font-semibold text-sm transition">Unlock Portal</button>
+        </form>
+        <div class="mt-6 pt-5 border-t border-slate-800 text-center">
+          <button type="button" id="show-signup-btn" class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold">
+            New team member? Sign up with your email for a PIN &rarr;
+          </button>
+        </div>
+      </div>
+
+      <div id="signup-panel" class="hidden">
+        <h1 class="text-2xl font-bold mb-2">Staff Sign-Up</h1>
+        <p class="text-sm text-slate-400 mb-6">Enter your name and work email to generate your personal PIN and register automatically.</p>
+        <form id="signup-form" class="space-y-4">
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">Full Name</label>
+            <input id="signup-name" type="text" required placeholder="e.g. Alex Morgan"
+              class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">Email Address</label>
+            <input id="signup-email" type="email" required placeholder="alex@example.com"
+              class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+          <p id="signup-status" class="text-xs text-slate-300 hidden"></p>
+          <button type="submit" id="signup-submit-btn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 py-3.5 rounded-xl font-bold text-sm transition">
+            Generate PIN &amp; Register
+          </button>
+        </form>
+        <div class="mt-6 pt-5 border-t border-slate-800 text-center">
+          <button type="button" id="back-login-btn" class="text-xs text-slate-400 hover:text-slate-200">
+            &larr; Back to PIN Login
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -38,8 +74,9 @@
           </div>
           <p id="role-sub" class="text-xs text-slate-400 mt-0.5"></p>
         </div>
-        <div class="flex items-center gap-3 text-xs">
-          <span id="stat-rdy" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-emerald-300 font-semibold">0 Available Leads</span>
+        <div class="flex flex-wrap items-center gap-3 text-xs">
+          <span id="stat-income" class="px-3 py-1.5 rounded-lg bg-indigo-950/70 border border-indigo-700/50 text-indigo-200 font-semibold">&pound;0 Setup &bull; &pound;0/mo</span>
+          <span id="stat-rdy" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-emerald-300 font-semibold">0 Leads</span>
           <span id="stat-rev" class="hidden px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-700/50 text-amber-300 font-semibold">0 Private QA Review</span>
           <button type="button" id="lock-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300">Lock</button>
         </div>
@@ -75,7 +112,12 @@
 
   <script>
     const ADMIN_CODE = "2408";
-    const STAFF_CODES = { "1111": "Staff Rep 1", "2222": "Staff Rep 2", "3333": "Staff Rep 3" };
+    const STAFF_CODES = {
+      "7842": "Josh",
+      "3910": "Scott",
+      "5286": "Leanne"
+    };
+    const NOX_API_BASE = "https://desktop-84afan7.tail3a451f.ts.net:8880";
     let sessionRole = null;
     let sessionUser = "";
     let activeTab = "ready";
@@ -113,6 +155,47 @@
       return false;
     }
 
+    async function handleSignup(e) {
+      e.preventDefault();
+      const nameInput = document.getElementById("signup-name");
+      const emailInput = document.getElementById("signup-email");
+      const statusEl = document.getElementById("signup-status");
+      const btn = document.getElementById("signup-submit-btn");
+      const name = (nameInput.value || "").trim();
+      const email = (emailInput.value || "").trim();
+      if (!name || !email) return;
+
+      btn.disabled = true;
+      btn.textContent = "Registering...";
+      statusEl.classList.remove("hidden", "text-rose-400", "text-emerald-400");
+      statusEl.classList.add("text-slate-300");
+      statusEl.textContent = "Generating personal PIN and registering account...";
+
+      try {
+        const res = await fetch(`${NOX_API_BASE}/api/portal/register`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.pin) {
+          throw new Error(data.error || "Registration endpoint unavailable.");
+        }
+        STAFF_CODES[String(data.pin)] = data.name || name;
+        statusEl.classList.remove("text-slate-300");
+        statusEl.classList.add("text-emerald-400");
+        statusEl.innerHTML = `Registered! Your personal PIN is <span class="font-mono font-bold underline">${escAttr(data.pin)}</span>. ${escAttr(data.delivery || "")}`;
+        document.getElementById("passcode-input").value = String(data.pin);
+      } catch (err) {
+        statusEl.classList.remove("text-slate-300");
+        statusEl.classList.add("text-rose-400");
+        statusEl.textContent = `Could not complete auto-registration yet (${err.message}). Ask Ross to enable /api/portal/register on NOX.`;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Generate PIN & Register";
+      }
+    }
+
     function setTab(t) {
       activeTab = t;
       document.getElementById("tab-review").className = t === "review"
@@ -125,19 +208,38 @@
     }
 
     function render() {
-      const normalized = allProjects.map(p => ({
-        ...p,
-        effectiveStatus: (p.status === "ready" || localApproved.includes(p.id)) ? "ready" : "review"
-      }));
+      const normalized = allProjects.map(p => {
+        const claimedBy = localClaims[p.id] || p.owner || "";
+        return {
+          ...p,
+          claimedBy,
+          effectiveStatus: (p.status === "ready" || localApproved.includes(p.id)) ? "ready" : "review"
+        };
+      });
 
       const visiblePool = sessionRole === "admin"
         ? normalized.filter(p => p.effectiveStatus === activeTab)
-        : normalized.filter(p => p.effectiveStatus === "ready");
+        : normalized.filter(p => p.effectiveStatus === "ready" && (!p.claimedBy || p.claimedBy === sessionUser));
 
-      const rdyCount = normalized.filter(p => p.effectiveStatus === "ready").length;
+      // Income calculation isolated to the logged-in rep's claimed leads (or all leads for admin)
+      const incomeLeads = sessionRole === "admin"
+        ? normalized.filter(p => p.effectiveStatus === "ready")
+        : normalized.filter(p => p.effectiveStatus === "ready" && p.claimedBy === sessionUser);
+
+      const totalSetup = incomeLeads.reduce((sum, item) => sum + (Number(item.setupFee) || 0), 0);
+      const totalMonthly = incomeLeads.reduce((sum, item) => sum + (Number(item.monthlyFee) || 0), 0);
+
+      document.getElementById("stat-income").textContent = sessionRole === "admin"
+        ? `Pipeline: £${totalSetup.toLocaleString()} + £${totalMonthly.toLocaleString()}/mo`
+        : `My Pipeline: £${totalSetup.toLocaleString()} + £${totalMonthly.toLocaleString()}/mo`;
+
+      const rdyCount = visiblePool.length;
       const revCount = normalized.filter(p => p.effectiveStatus === "review").length;
 
-      document.getElementById("stat-rdy").textContent = `${rdyCount} Approved Staff Leads`;
+      document.getElementById("stat-rdy").textContent = sessionRole === "admin"
+        ? `${rdyCount} ${activeTab === "review" ? "Review" : "Approved"} Leads`
+        : `${rdyCount} Visible Leads`;
+
       if (sessionRole === "admin") {
         const revEl = document.getElementById("stat-rev");
         revEl.classList.remove("hidden");
@@ -146,7 +248,7 @@
 
       const grid = document.getElementById("grid");
       grid.innerHTML = visiblePool.length ? visiblePool.map(p => {
-        const claimedBy = localClaims[p.id] || p.owner;
+        const claimedBy = p.claimedBy;
         const isReview = p.effectiveStatus === "review";
         return `
         <div class="bg-slate-900 border ${isReview ? "border-amber-500/30" : "border-slate-800"} rounded-2xl p-6 flex flex-col justify-between">
@@ -154,7 +256,7 @@
             <div class="flex justify-between items-center mb-3">
               <span class="text-xs uppercase tracking-wider text-indigo-400 font-semibold">${escAttr(p.category)}</span>
               <span class="text-xs px-2.5 py-0.5 rounded-full font-medium ${isReview ? "bg-amber-500/10 text-amber-300 border border-amber-500/30" : "bg-emerald-500/10 text-emerald-300 border border-emerald-500/30"}">
-                ${isReview ? "Private QA Review" : (claimedBy ? "Chasing: " + escAttr(claimedBy) : "Available Lead")}
+                ${isReview ? "Private QA Review" : (claimedBy ? "Claimed: " + escAttr(claimedBy) : "Available Lead")}
               </span>
             </div>
             <h2 class="text-lg font-bold mb-1">${escAttr(p.name)}</h2>
@@ -175,7 +277,7 @@
       }).join("") : `<div class="col-span-full text-center py-16 border border-dashed border-slate-800 rounded-2xl text-slate-500 text-sm">
         ${sessionRole === "admin" && activeTab === "review"
           ? "No sites waiting in your private review folder. Ask NOX to scrape new Essex leads."
-          : "No approved leads available to chase yet."}
+          : "No unclaimed or assigned leads available right now."}
       </div>`;
     }
 
@@ -184,8 +286,8 @@
       document.getElementById("app-screen").classList.remove("hidden");
       document.getElementById("role-badge").textContent = sessionUser;
       document.getElementById("role-sub").textContent = sessionRole === "admin"
-        ? "Admin Mode: Reviewing private websites/review/ queue before releasing to staff."
-        : "Staff Mode: Showing approved client leads ready to pitch (\u00A3450 setup + \u00A345/mo).";
+        ? "Admin Mode: Full roster, QA review queue, and team pipeline visibility."
+        : `Staff Mode (${sessionUser}): Showing open leads and your own claimed leads & income only.`;
       if (sessionRole === "admin") {
         document.getElementById("admin-tabs").classList.remove("hidden");
       }
@@ -195,6 +297,15 @@
       }).catch(() => { allProjects = []; render(); });
     }
 
+    document.getElementById("show-signup-btn").addEventListener("click", () => {
+      document.getElementById("login-panel").classList.add("hidden");
+      document.getElementById("signup-panel").classList.remove("hidden");
+    });
+    document.getElementById("back-login-btn").addEventListener("click", () => {
+      document.getElementById("signup-panel").classList.add("hidden");
+      document.getElementById("login-panel").classList.remove("hidden");
+    });
+    document.getElementById("signup-form").addEventListener("submit", handleSignup);
     document.getElementById("login-form").addEventListener("submit", tryLogin);
     document.getElementById("lock-btn").addEventListener("click", () => { try { sessionStorage.clear(); } catch (_) {} location.reload(); });
     document.getElementById("tab-review").addEventListener("click", () => setTab("review"));
