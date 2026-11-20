@@ -432,7 +432,7 @@
       st.textContent = "Updating profile and syncing PIN...";
 
       try {
-        const res = await fetch(${NOX_API_BASE}/api/portal/update-profile, {
+        const res = await fetch(`${NOX_API_BASE}/api/portal/update-profile`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
