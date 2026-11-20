@@ -86,23 +86,6 @@
       "updatedAt": "20 Nov, 02:06"
     },
     {
-      "id": "the-rovers-tye",
-      "name": "The Rovers Tye",
-      "category": "Pub",
-      "location": "Ipswich Rd, Highwoods, Colchester CO4 9BA",
-      "phone": "01206 845345",
-      "email": "No public email — call or DM",
-      "contactPerson": "Ask for Owner / Manager",
-      "rating": "4.2",
-      "status": "review",
-      "owner": "",
-      "setupFee": 450,
-      "monthlyFee": 45,
-      "pitch": "No website listed on Google. Built a mobile-ready pub preview tailored to Ipswich Rd, Highwoods, Colchester CO4 9BA (£450 setup + £45/mo).",
-      "demoUrl": "websites/review/the-rovers-tye/offline_preview.html",
-      "updatedAt": "20 Nov, 14:16"
-    },
-    {
       "id": "caf-nosh",
       "name": "Café Nosh",
       "category": "Cafe",
@@ -117,7 +100,7 @@
       "monthlyFee": 45,
       "pitch": "No website listed on Google. Built a mobile-ready cafe preview tailored to 1b Wimpole Rd, Colchester CO1 2BX (£450 setup + £45/mo).",
       "demoUrl": "websites/review/caf-nosh/offline_preview.html",
-      "updatedAt": "20 Nov, 14:16"
+      "updatedAt": "20 Nov, 14:17"
     },
     {
       "id": "hosh-cafe",
@@ -134,7 +117,7 @@
       "monthlyFee": 45,
       "pitch": "Social/directory page only (linktr.ee). Built a mobile-ready cafe preview tailored to 18 Osborne St, Colchester CO2 7DP (£450 setup + £45/mo).",
       "demoUrl": "websites/review/hosh-cafe/offline_preview.html",
-      "updatedAt": "20 Nov, 14:16"
+      "updatedAt": "20 Nov, 14:17"
     },
     {
       "id": "shearman-s-barbers",
@@ -151,7 +134,7 @@
       "monthlyFee": 45,
       "pitch": "No website listed on Google. Built a mobile-ready barber shop preview tailored to 40 Recreation Rd, Colchester CO1 2HF (£450 setup + £45/mo).",
       "demoUrl": "websites/review/shearman-s-barbers/offline_preview.html",
-      "updatedAt": "20 Nov, 14:17"
+      "updatedAt": "20 Nov, 14:18"
     },
     {
       "id": "chopping-block-barbers",
@@ -168,7 +151,24 @@
       "monthlyFee": 45,
       "pitch": "No website listed on Google. Built a mobile-ready barber shop preview tailored to 26c Hythe Quay, Colchester CO2 8JB (£450 setup + £45/mo).",
       "demoUrl": "websites/review/chopping-block-barbers/offline_preview.html",
-      "updatedAt": "20 Nov, 14:17"
+      "updatedAt": "20 Nov, 14:18"
+    },
+    {
+      "id": "the-hythe-barber-shop",
+      "name": "The Hythe Barber Shop",
+      "category": "Barber shop",
+      "location": "3 Quayside Dr, Colchester CO2 8GE",
+      "phone": "01206 864893",
+      "email": "No public email — call or DM",
+      "contactPerson": "Ask for Owner / Manager",
+      "rating": "4.6",
+      "status": "review",
+      "owner": "",
+      "setupFee": 450,
+      "monthlyFee": 45,
+      "pitch": "No website listed on Google. Built a mobile-ready barber shop preview tailored to 3 Quayside Dr, Colchester CO2 8GE (£450 setup + £45/mo).",
+      "demoUrl": "websites/review/the-hythe-barber-shop/offline_preview.html",
+      "updatedAt": "20 Nov, 14:18"
     }
   ],
   "payouts": {}
