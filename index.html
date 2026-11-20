@@ -1,714 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O.T.I.S. Agency Sales & Pipeline Command</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass { background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .glass-card { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glow-gold { box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.25); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebCraft Staff &amp; QA Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
 
-    <!-- LOGIN SCREEN -->
-    <div id="loginScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950 px-4">
-        <div class="glass max-w-md w-full p-8 rounded-3xl glow-gold shadow-2xl relative overflow-hidden">
-            <div class="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl"></div>
-            <div class="text-center mb-8">
-                <span class="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold rounded-full tracking-wider uppercase mb-3">O.T.I.S. 2.0 Secure Access</span>
-                <h1 class="text-2xl font-extrabold tracking-tight text-white">Agency Sales Command</h1>
-                <p class="text-xs text-slate-400 mt-1">Enter your assigned 4-digit security PIN to access the pipeline.</p>
-            </div>
+  <!-- PASSCODE LOGIN SCREEN -->
+  <div id="login-screen" class="min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl">
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+        <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold">WebCraft // Portal Access</span>
+      </div>
+      <h1 class="text-2xl font-bold mb-2">Enter Access Passcode</h1>
+      <p class="text-sm text-slate-400 mb-6">Staff passcodes unlock approved client leads. Admin passcode unlocks the private QA review queue.</p>
+      <form id="login-form" class="space-y-4">
+        <input id="passcode-input" type="password" inputmode="numeric" maxlength="12" required autocomplete="off" placeholder="Enter passcode..."
+          class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-700 text-center text-lg tracking-widest font-mono focus:outline-none focus:border-indigo-500" />
+        <p id="login-err" class="text-xs text-rose-400 hidden">Invalid passcode. Check with Ross for your staff code.</p>
+        <button type="submit" id="unlock-btn" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3.5 rounded-xl font-semibold text-sm transition">Unlock Portal</button>
+      </form>
+    </div>
+  </div>
 
-            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-5">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Security PIN</label>
-                    <input type="password" id="pinInput" maxlength="4" placeholder="••••" required
-                        class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-center text-2xl tracking-widest text-amber-400 focus:outline-none focus:border-amber-500 transition-all">
-                </div>
-                <div id="loginError" class="hidden text-rose-400 text-xs text-center font-medium bg-rose-500/10 border border-rose-500/20 py-2 rounded-lg">
-                    Invalid PIN. Please check your assigned code.
-                </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all transform active:scale-[0.98]">
-                    Authenticate Session
-                </button>
-            </form>
-
-            <div class="mt-8 pt-6 border-t border-slate-800/80 text-center">
-                <p class="text-xs text-slate-500">Authorized Team PINs: Ross (Admin), Josh, Scott, Leanne</p>
-            </div>
+  <!-- MAIN PORTAL -->
+  <div id="app-screen" class="hidden">
+    <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-20">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h1 class="text-xl font-bold tracking-tight">WebCraft Leads Portal</h1>
+            <span id="role-badge" class="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"></span>
+          </div>
+          <p id="role-sub" class="text-xs text-slate-400 mt-0.5"></p>
         </div>
-    </div>
-
-    <!-- SOLD DEAL CONFIRMATION MODAL -->
-    <div id="soldModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm px-4">
-        <div class="glass max-w-md w-full p-6 rounded-3xl border border-emerald-500/30 space-y-5">
-            <div>
-                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Close Deal & Calculate Commission</span>
-                <h3 class="text-xl font-extrabold text-white mt-1" id="soldModalTitle">Confirm Sale</h3>
-            </div>
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Final Website Sale Price (£)</label>
-                    <input type="number" id="soldSetupInput" oninput="previewSoldCalc()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-bold text-white focus:outline-none focus:border-emerald-500">
-                </div>
-                <div class="flex items-center justify-between bg-slate-900/90 border border-slate-800 p-3.5 rounded-xl">
-                    <div>
-                        <div class="text-xs font-bold text-white">Include Monthly Maintenance?</div>
-                        <div class="text-[11px] text-slate-400">Earns 20% recurring monthly commission</div>
-                    </div>
-                    <input type="checkbox" id="soldMaintCheck" checked onchange="previewSoldCalc()" class="h-5 w-5 accent-emerald-500 rounded">
-                </div>
-                <div id="soldMaintPriceWrap">
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Monthly Maintenance Price (£/mo)</label>
-                    <input type="number" id="soldMonthlyInput" oninput="previewSoldCalc()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-bold text-white focus:outline-none focus:border-emerald-500">
-                </div>
-                <div class="bg-emerald-500/10 border border-emerald-500/30 p-3.5 rounded-2xl flex items-center justify-between">
-                    <div>
-                        <div class="text-[11px] text-emerald-300 uppercase font-bold">Instant Payout (50%)</div>
-                        <div class="text-xl font-extrabold text-white" id="soldPreviewInstant">£0</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-[11px] text-amber-300 uppercase font-bold">Monthly Income (20%)</div>
-                        <div class="text-xl font-extrabold text-amber-300" id="soldPreviewMonthly">£0/mo</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center justify-end gap-2 pt-2">
-                <button onclick="closeSoldModal()" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-300">Cancel</button>
-                <button onclick="confirmSoldDeal()" class="px-5 py-2.5 rounded-xl text-xs font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950">Confirm Sale & Add to Pot</button>
-            </div>
+        <div class="flex items-center gap-3 text-xs">
+          <span id="stat-rdy" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-emerald-300 font-semibold">0 Available Leads</span>
+          <span id="stat-rev" class="hidden px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-700/50 text-amber-300 font-semibold">0 Private QA Review</span>
+          <button type="button" id="lock-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300">Lock</button>
         </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+      <div id="admin-tabs" class="hidden flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+        <div class="flex gap-2">
+          <button type="button" id="tab-review" class="px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-slate-950">Private QA Review (Hidden from Staff)</button>
+          <button type="button" id="tab-ready" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800">Approved Staff Leads</button>
+        </div>
+        <p class="text-xs text-slate-400">Tip: Tell NOX <span class="text-slate-200 font-mono">"approve [business name]"</span> or <span class="text-slate-200 font-mono">"approve all review sites"</span> to publish to staff.</p>
+      </div>
+
+      <div id="grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </main>
+  </div>
+
+  <!-- INLINE DEMO PREVIEW MODAL -->
+  <div id="modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-5xl h-[85vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-3 border-b border-slate-800 flex justify-between items-center">
+        <span id="modal-title" class="font-bold text-sm">Client Preview</span>
+        <div class="flex gap-2">
+          <a id="modal-ext" href="#" target="_blank" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700">Open Full Tab</a>
+          <button type="button" id="modal-close" class="text-xs px-3 py-1.5 rounded-lg bg-rose-600/20 text-rose-300 hover:bg-rose-600/30">Close</button>
+        </div>
+      </div>
+      <iframe id="modal-frame" class="w-full flex-1 bg-white"></iframe>
     </div>
+  </div>
 
-    <!-- MAIN DASHBOARD -->
-    <div id="dashboardApp" class="hidden min-h-screen flex flex-col">
-        <header class="glass sticky top-0 z-40 border-b border-slate-800 px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <div class="h-10 w-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-black text-lg">O</div>
-                <div>
-                    <span class="text-xs font-bold text-amber-400 tracking-wider uppercase">O.T.I.S. Operations</span>
-                    <h2 class="text-base font-bold text-white" id="navUserGreeting">Welcome Back</h2>
-                </div>
+  <script>
+    const ADMIN_CODE = "2408";
+    const STAFF_CODES = { "1111": "Staff Rep 1", "2222": "Staff Rep 2", "3333": "Staff Rep 3" };
+    let sessionRole = null;
+    let sessionUser = "";
+    let activeTab = "ready";
+    let allProjects = [];
+    let localApproved = JSON.parse(localStorage.getItem("wc_local_approved") || "[]");
+    let localClaims = JSON.parse(localStorage.getItem("wc_local_claims") || "{}");
+
+    function escAttr(str) {
+      return String(str || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;");
+    }
+
+    function tryLogin(e) {
+      if (e) e.preventDefault();
+      const raw = document.getElementById("passcode-input").value || "";
+      const code = raw.replace(/\s+/g, "");
+      const err = document.getElementById("login-err");
+      if (code === ADMIN_CODE) {
+        sessionRole = "admin";
+        sessionUser = "Ross (Admin)";
+        activeTab = "review";
+      } else if (STAFF_CODES[code]) {
+        sessionRole = "staff";
+        sessionUser = STAFF_CODES[code];
+        activeTab = "ready";
+      } else {
+        err.classList.remove("hidden");
+        return false;
+      }
+      err.classList.add("hidden");
+      try {
+        sessionStorage.setItem("wc_role", sessionRole);
+        sessionStorage.setItem("wc_user", sessionUser);
+      } catch (_) {}
+      bootPortal();
+      return false;
+    }
+
+    function setTab(t) {
+      activeTab = t;
+      document.getElementById("tab-review").className = t === "review"
+        ? "px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-slate-950"
+        : "px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800";
+      document.getElementById("tab-ready").className = t === "ready"
+        ? "px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-500 text-slate-950"
+        : "px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800";
+      render();
+    }
+
+    function render() {
+      const normalized = allProjects.map(p => ({
+        ...p,
+        effectiveStatus: (p.status === "ready" || localApproved.includes(p.id)) ? "ready" : "review"
+      }));
+
+      const visiblePool = sessionRole === "admin"
+        ? normalized.filter(p => p.effectiveStatus === activeTab)
+        : normalized.filter(p => p.effectiveStatus === "ready");
+
+      const rdyCount = normalized.filter(p => p.effectiveStatus === "ready").length;
+      const revCount = normalized.filter(p => p.effectiveStatus === "review").length;
+
+      document.getElementById("stat-rdy").textContent = `${rdyCount} Approved Staff Leads`;
+      if (sessionRole === "admin") {
+        const revEl = document.getElementById("stat-rev");
+        revEl.classList.remove("hidden");
+        revEl.textContent = `${revCount} Awaiting Your QA`;
+      }
+
+      const grid = document.getElementById("grid");
+      grid.innerHTML = visiblePool.length ? visiblePool.map(p => {
+        const claimedBy = localClaims[p.id] || p.owner;
+        const isReview = p.effectiveStatus === "review";
+        return `
+        <div class="bg-slate-900 border ${isReview ? "border-amber-500/30" : "border-slate-800"} rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-xs uppercase tracking-wider text-indigo-400 font-semibold">${escAttr(p.category)}</span>
+              <span class="text-xs px-2.5 py-0.5 rounded-full font-medium ${isReview ? "bg-amber-500/10 text-amber-300 border border-amber-500/30" : "bg-emerald-500/10 text-emerald-300 border border-emerald-500/30"}">
+                ${isReview ? "Private QA Review" : (claimedBy ? "Chasing: " + escAttr(claimedBy) : "Available Lead")}
+              </span>
             </div>
-
-            <div class="flex items-center space-x-3">
-                <div id="syncStatusBadge" class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold rounded-full">
-                    ● Live Synced
-                </div>
-                <div id="adminBadge" class="hidden px-3 py-1 bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold rounded-full">
-                    ADMIN VIEW (ROSS)
-                </div>
-                <div class="text-right hidden md:block">
-                    <div class="text-xs font-medium text-slate-400" id="navRole">Staff Member</div>
-                    <div class="text-xs font-bold text-emerald-400">50% Setup • 20% Monthly</div>
-                </div>
-                <button onclick="logout()" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-xs font-semibold transition-all">
-                    Sign Out
-                </button>
+            <h2 class="text-lg font-bold mb-1">${escAttr(p.name)}</h2>
+            <p class="text-xs text-slate-300 font-medium mb-2">${escAttr(p.location)} &bull; <a href="tel:${escAttr(p.phone)}" class="underline">${escAttr(p.phone)}</a></p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">${escAttr(p.pitch || "")}</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex flex-wrap justify-between items-center gap-2">
+            <span class="text-xs font-semibold text-slate-300">&pound;${p.setupFee} + &pound;${p.monthlyFee}/mo</span>
+            <div class="flex gap-2">
+              <button type="button" data-action="preview" data-name="${escAttr(p.name)}" data-url="${escAttr(p.demoUrl)}" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-3 py-2 rounded-xl font-semibold">Preview</button>
+              ${sessionRole === "admin" && isReview
+                ? `<button type="button" data-action="approve" data-id="${escAttr(p.id)}" data-name="${escAttr(p.name)}" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs px-3.5 py-2 rounded-xl font-bold">Approve &rarr; Staff</button>`
+                : `<button type="button" data-action="claim" data-id="${escAttr(p.id)}" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs px-3.5 py-2 rounded-xl font-semibold">${claimedBy ? "Release" : "Claim Lead"}</button>`
+              }
             </div>
-        </header>
+          </div>
+        </div>`;
+      }).join("") : `<div class="col-span-full text-center py-16 border border-dashed border-slate-800 rounded-2xl text-slate-500 text-sm">
+        ${sessionRole === "admin" && activeTab === "review"
+          ? "No sites waiting in your private review folder. Ask NOX to scrape new Essex leads."
+          : "No approved leads available to chase yet."}
+      </div>`;
+    }
 
-        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="glass-card p-5 rounded-2xl border border-amber-500/30">
-                    <div class="text-amber-400 text-xs font-semibold uppercase tracking-wider">My Payout Pot (Unpaid)</div>
-                    <div class="text-3xl font-extrabold text-amber-300 mt-2" id="metricMyPot">£0</div>
-                    <div class="text-xs text-slate-400 mt-1" id="metricMyPotSub">50% instant commission ready</div>
-                </div>
-                <div class="glass-card p-5 rounded-2xl border border-emerald-500/30">
-                    <div class="text-emerald-400 text-xs font-semibold uppercase tracking-wider">My Monthly Income</div>
-                    <div class="text-3xl font-extrabold text-emerald-400 mt-2" id="metricMyMonthly">£0/mo</div>
-                    <div class="text-xs text-slate-400 mt-1" id="metricMyMonthlySub">20% recurring maintenance</div>
-                </div>
-                <div class="glass-card p-5 rounded-2xl">
-                    <div class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Total Paid Out to Me</div>
-                    <div class="text-3xl font-extrabold text-white mt-2" id="metricMyPaidTotal">£0</div>
-                    <div class="text-xs text-slate-400 mt-1" id="metricMyDealsCount">0 total websites sold</div>
-                </div>
-                <div class="glass-card p-5 rounded-2xl">
-                    <div class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Available Leads</div>
-                    <div class="text-3xl font-extrabold text-sky-400 mt-2" id="metricReady">0</div>
-                    <div class="text-xs text-slate-400 mt-1" id="metricSoldTeamSub">0 team deals closed</div>
-                </div>
-            </div>
+    function bootPortal() {
+      document.getElementById("login-screen").classList.add("hidden");
+      document.getElementById("app-screen").classList.remove("hidden");
+      document.getElementById("role-badge").textContent = sessionUser;
+      document.getElementById("role-sub").textContent = sessionRole === "admin"
+        ? "Admin Mode: Reviewing private websites/review/ queue before releasing to staff."
+        : "Staff Mode: Showing approved client leads ready to pitch (\u00A3450 setup + \u00A345/mo).";
+      if (sessionRole === "admin") {
+        document.getElementById("admin-tabs").classList.remove("hidden");
+      }
+      fetch("projects.json?t=" + Date.now()).then(r => r.json()).then(d => {
+        allProjects = d.projects || [];
+        render();
+      }).catch(() => { allProjects = []; render(); });
+    }
 
-            <div id="adminDeployAlert" class="hidden glass-card p-5 rounded-3xl border border-emerald-500/40 bg-emerald-950/20 space-y-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2.5">
-                        <span class="h-3 w-3 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <h3 class="text-base font-extrabold text-white">Action Required: Sold Websites Awaiting Live Deployment (<span id="deployQueueCount">0</span>)</h3>
-                    </div>
-                    <span class="text-xs text-emerald-300 font-semibold">Click "Mark Deployed" once live for the client</span>
-                </div>
-                <div id="deployQueueList" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
-            </div>
-
-            <div id="adminOversightPanel" class="hidden glass-card p-6 rounded-3xl border border-amber-500/30 space-y-5">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Executive Payroll & Commission Control</span>
-                        <h3 class="text-xl font-bold text-white">Team Commission Pots, Recurring Income & Payouts</h3>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-2">
-                        <button onclick="exportProjectsJson()" class="bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all">
-                            Export Backup JSON
-                        </button>
-                        <button onclick="resetLocalOverrides()" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all">
-                            Refresh Cloud State
-                        </button>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="adminTeamSummary"></div>
-            </div>
-
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
-                <div class="flex flex-wrap items-center gap-1.5 bg-slate-900 p-1.5 rounded-2xl border border-slate-800">
-                    <button onclick="switchTab('review')" id="tab-review" class="hidden px-4 py-2 rounded-xl text-xs font-bold transition-all text-purple-300 hover:text-white border border-purple-500/30">QA Review (<span id="cnt-review">0</span>)</button>
-                    <button onclick="switchTab('all')" id="tab-all" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950">All (<span id="cnt-all">0</span>)</button>
-                    <button onclick="switchTab('ready')" id="tab-ready" class="px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">Ready (<span id="cnt-ready">0</span>)</button>
-                    <button onclick="switchTab('pitched')" id="tab-pitched" class="px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">Pitched (<span id="cnt-pitched">0</span>)</button>
-                    <button onclick="switchTab('sold')" id="tab-sold" class="px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">Sold (<span id="cnt-sold">0</span>)</button>
-                    <button onclick="switchTab('unsold')" id="tab-unsold" class="px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">Unsold (<span id="cnt-unsold">0</span>)</button>
-                    <button onclick="switchTab('mine')" id="tab-mine" class="px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">My Pipeline (<span id="cnt-mine">0</span>)</button>
-                </div>
-
-                <div class="w-full lg:w-72">
-                    <input type="text" id="searchInput" oninput="renderProjects()" placeholder="Search company, town, category..."
-                        class="w-full bg-slate-900/80 border border-slate-700/80 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
-                </div>
-            </div>
-
-            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-        </main>
-    </div>
-
-    <script>
-        const USERS = {
-            "1984": { name: "Ross", role: "Admin", isAdmin: true },
-            "7842": { name: "Josh", role: "Sales Rep", isAdmin: false },
-            "3910": { name: "Scott", role: "Sales Rep", isAdmin: false },
-            "5286": { name: "Leanne", role: "Sales Rep", isAdmin: false }
-        };
-
-        const SETUP_COMM_RATE = 0.50;
-        const MONTHLY_COMM_RATE = 0.20;
-
-        let PROJECTS = [];
-        let PAYOUTS = {};
-        let currentUser = null;
-        let currentTab = 'all';
-        let pendingSoldId = null;
-
-        function setSyncStatus(text, color) {
-            const el = document.getElementById('syncStatusBadge');
-            if (!el) return;
-            el.innerText = text;
-            el.className = color === "amber"
-                ? "px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold rounded-full"
-                : "px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold rounded-full";
+    document.getElementById("login-form").addEventListener("submit", tryLogin);
+    document.getElementById("lock-btn").addEventListener("click", () => { try { sessionStorage.clear(); } catch (_) {} location.reload(); });
+    document.getElementById("tab-review").addEventListener("click", () => setTab("review"));
+    document.getElementById("tab-ready").addEventListener("click", () => setTab("ready"));
+    document.getElementById("modal-close").addEventListener("click", () => {
+      const m = document.getElementById("modal");
+      m.classList.add("hidden");
+      m.classList.remove("flex");
+      document.getElementById("modal-frame").src = "";
+    });
+    document.getElementById("grid").addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-action]");
+      if (!btn) return;
+      const act = btn.dataset.action;
+      if (act === "preview") {
+        const baseHref = location.href.endsWith("/") ? location.href : location.href + "/";
+        const resolvedUrl = new URL(btn.dataset.url, baseHref).href;
+        document.getElementById("modal-title").textContent = btn.dataset.name;
+        document.getElementById("modal-ext").href = resolvedUrl;
+        document.getElementById("modal-frame").src = resolvedUrl;
+        const m = document.getElementById("modal");
+        m.classList.remove("hidden");
+        m.classList.add("flex");
+      } else if (act === "approve") {
+        const id = btn.dataset.id;
+        if (!localApproved.includes(id)) {
+          localApproved.push(id);
+          localStorage.setItem("wc_local_approved", JSON.stringify(localApproved));
         }
+        render();
+      } else if (act === "claim") {
+        const id = btn.dataset.id;
+        if (localClaims[id]) delete localClaims[id];
+        else localClaims[id] = sessionUser;
+        localStorage.setItem("wc_local_claims", JSON.stringify(localClaims));
+        render();
+      }
+    });
 
-        function getLocalState() {
-            try { return JSON.parse(localStorage.getItem('otis_portal_state_v2') || 'null'); }
-            catch { return null; }
-        }
-
-        function saveLocalState() {
-            localStorage.setItem('otis_portal_state_v2', JSON.stringify({ projects: PROJECTS, payouts: PAYOUTS }));
-        }
-
-        async function loadProjects() {
-            try {
-                let res = await fetch(`/.netlify/functions/sync?t=${Date.now()}`);
-                if (!res.ok) res = await fetch(`projects.json?t=${Date.now()}`);
-                const data = await res.json();
-                const rawProjects = Array.isArray(data) ? data : (data.projects || []);
-                PAYOUTS = (!Array.isArray(data) && data.payouts) ? data.payouts : {};
-
-                PROJECTS = rawProjects
-                    .map(p => ({
-                        ...p,
-                        status: p.status || 'ready',
-                        owner: p.owner || '',
-                        setupFee: Number(p.setupFee || 400),
-                        monthlyFee: Number(p.monthlyFee || 45),
-                        hasMaintenance: p.hasMaintenance !== undefined ? Boolean(p.hasMaintenance) : true,
-                        deployed: Boolean(p.deployed),
-                        paidOut: Boolean(p.paidOut)
-                    }));
-                saveLocalState();
-            } catch (e) {
-                const cached = getLocalState();
-                if (cached) {
-                    PROJECTS = cached.projects || [];
-                    PAYOUTS = cached.payouts || {};
-                }
-            }
-        }
-
-        async function syncToGitHub() {
-            saveLocalState();
-            setSyncStatus("● Syncing to Team Cloud...", "amber");
-            try {
-                const fnRes = await fetch("/.netlify/functions/sync", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        state: { projects: PROJECTS, payouts: PAYOUTS },
-                        updatedBy: currentUser.name
-                    })
-                });
-                if (fnRes.ok) {
-                    const data = await fnRes.json();
-                    if (data.ok) {
-                        setSyncStatus("● Synced to Team Cloud", "emerald");
-                        return;
-                    }
-                }
-                setSyncStatus("● Saved Locally (Check Netlify Token)", "amber");
-            } catch (err) {
-                setSyncStatus("● Saved Locally (Offline)", "amber");
-            }
-        }
-
-        function openSoldModal(projectId) {
-            const proj = PROJECTS.find(p => p.id === projectId);
-            if (!proj) return;
-            pendingSoldId = projectId;
-            document.getElementById('soldModalTitle').innerText = `Close Deal: ${proj.name}`;
-            document.getElementById('soldSetupInput').value = proj.setupFee || 400;
-            document.getElementById('soldMaintCheck').checked = proj.hasMaintenance !== false;
-            document.getElementById('soldMonthlyInput').value = proj.monthlyFee || 45;
-            previewSoldCalc();
-            document.getElementById('soldModal').classList.remove('hidden');
-        }
-
-        function closeSoldModal() {
-            pendingSoldId = null;
-            document.getElementById('soldModal').classList.add('hidden');
-        }
-
-        function previewSoldCalc() {
-            const setup = Number(document.getElementById('soldSetupInput').value || 0);
-            const hasMaint = document.getElementById('soldMaintCheck').checked;
-            const monthly = hasMaint ? Number(document.getElementById('soldMonthlyInput').value || 0) : 0;
-            document.getElementById('soldMaintPriceWrap').style.opacity = hasMaint ? '1' : '0.4';
-            document.getElementById('soldPreviewInstant').innerText = `£${Math.round(setup * SETUP_COMM_RATE).toLocaleString()}`;
-            document.getElementById('soldPreviewMonthly').innerText = `£${(monthly * MONTHLY_COMM_RATE).toFixed(2).replace(/\.00$/, '')}/mo`;
-        }
-
-        async function confirmSoldDeal() {
-            if (!pendingSoldId) return;
-            const proj = PROJECTS.find(p => p.id === pendingSoldId);
-            if (!proj) return;
-
-            const setup = Math.max(0, Number(document.getElementById('soldSetupInput').value || 0));
-            const hasMaint = document.getElementById('soldMaintCheck').checked;
-            const monthly = hasMaint ? Math.max(0, Number(document.getElementById('soldMonthlyInput').value || 0)) : 0;
-
-            proj.setupFee = setup;
-            proj.hasMaintenance = hasMaint;
-            proj.monthlyFee = monthly;
-            proj.status = 'sold';
-            proj.owner = proj.owner || currentUser.name;
-            proj.deployed = false;
-            proj.paidOut = false;
-            proj.updatedAt = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-
-            closeSoldModal();
-            renderProjects();
-            if (currentUser.isAdmin) renderAdminOverview();
-            await syncToGitHub();
-        }
-
-        async function toggleDeployed(projectId) {
-            const proj = PROJECTS.find(p => p.id === projectId);
-            if (!proj) return;
-            proj.deployed = !proj.deployed;
-            renderProjects();
-            if (currentUser.isAdmin) renderAdminOverview();
-            await syncToGitHub();
-        }
-
-        async function issueRepPayout(repName) {
-            const unpaidDeals = PROJECTS.filter(p => p.status === 'sold' && p.owner === repName && !p.paidOut);
-            const potAmount = Math.round(unpaidDeals.reduce((sum, p) => sum + (Number(p.setupFee || 0) * SETUP_COMM_RATE), 0));
-            if (potAmount <= 0) {
-                alert(`${repName} currently has £0 in their unpaid payout pot.`);
-                return;
-            }
-            if (!confirm(`Confirm issuing a £${potAmount.toLocaleString()} payout to ${repName} for ${unpaidDeals.length} sold website(s)?`)) {
-                return;
-            }
-
-            unpaidDeals.forEach(p => { p.paidOut = true; });
-            if (!PAYOUTS[repName]) PAYOUTS[repName] = { paidOutTotal: 0, history: [] };
-            PAYOUTS[repName].paidOutTotal = Number(PAYOUTS[repName].paidOutTotal || 0) + potAmount;
-            PAYOUTS[repName].history.unshift({
-                amount: potAmount,
-                deals: unpaidDeals.length,
-                date: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
-            });
-
-            renderProjects();
-            renderAdminOverview();
-            await syncToGitHub();
-        }
-
-        async function requestRevision(projectId) {
-            const proj = PROJECTS.find(p => p.id === projectId);
-            if (!proj) return;
-            const note = prompt(`What should O.T.I.S. 2.0 fix or redesign on "${proj.name}"?`, proj.revisionNote || "Upgrade visual layout, fix any broken images/sections, and sharpen local Essex copy.");
-            if (note === null) return;
-            proj.status = 'revision';
-            proj.revisionNote = note.trim();
-            proj.updatedAt = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-            renderProjects();
-            await syncToGitHub();
-        }
-
-        async function setProjectStage(projectId, newStatus) {
-            if (newStatus === 'sold') {
-                openSoldModal(projectId);
-                return;
-            }
-            const proj = PROJECTS.find(p => p.id === projectId);
-            if (!proj) return;
-            proj.status = newStatus;
-            if (newStatus === 'ready') {
-                proj.owner = '';
-            } else if (!proj.owner) {
-                proj.owner = currentUser.name;
-            }
-            proj.updatedAt = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-
-            renderProjects();
-            if (currentUser.isAdmin) renderAdminOverview();
-            await syncToGitHub();
-        }
-
-        async function claimProject(projectId) {
-            const proj = PROJECTS.find(p => p.id === projectId);
-            if (!proj) return;
-            proj.owner = currentUser.name;
-            if (proj.status === 'ready') proj.status = 'pitched';
-            proj.updatedAt = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-
-            renderProjects();
-            if (currentUser.isAdmin) renderAdminOverview();
-            await syncToGitHub();
-        }
-
-        function exportProjectsJson() {
-            const blob = new Blob([JSON.stringify({ projects: PROJECTS, payouts: PAYOUTS }, null, 2)], { type: "application/json" });
-            const a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "projects-backup.json";
-            a.click();
-        }
-
-        async function resetLocalOverrides() {
-            localStorage.removeItem('otis_portal_state_v2');
-            await loadProjects();
-            renderProjects();
-            if (currentUser.isAdmin) renderAdminOverview();
-        }
-
-        function handleLogin(event) {
-            event.preventDefault();
-            const pin = document.getElementById('pinInput').value.trim();
-            const errorEl = document.getElementById('loginError');
-            if (USERS[pin]) {
-                currentUser = { pin, ...USERS[pin] };
-                localStorage.setItem('otis_current_user', JSON.stringify(currentUser));
-                initDashboard();
-            } else {
-                errorEl.classList.remove('hidden');
-                document.getElementById('pinInput').value = '';
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem('otis_current_user');
-            currentUser = null;
-            document.getElementById('dashboardApp').classList.add('hidden');
-            document.getElementById('loginScreen').classList.remove('hidden');
-            document.getElementById('pinInput').value = '';
-        }
-
-        async function initDashboard() {
-            document.getElementById('loginScreen').classList.add('hidden');
-            document.getElementById('dashboardApp').classList.remove('hidden');
-
-            document.getElementById('navUserGreeting').innerText = `Welcome, ${currentUser.name}`;
-            document.getElementById('navRole').innerText = currentUser.role;
-
-            await loadProjects();
-
-            if (currentUser.isAdmin) {
-                document.getElementById('adminBadge').classList.remove('hidden');
-                document.getElementById('adminOversightPanel').classList.remove('hidden');
-                document.getElementById('tab-review').classList.remove('hidden');
-                renderAdminOverview();
-            }
-
-            renderProjects();
-        }
-
-        function switchTab(tab) {
-            currentTab = tab;
-            ['review', 'all', 'ready', 'pitched', 'sold', 'unsold', 'mine'].forEach(t => {
-                const btn = document.getElementById(`tab-${t}`);
-                btn.className = t === tab
-                    ? "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950"
-                    : "px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white";
-            });
-            renderProjects();
-        }
-
-        function getRepStats(repName) {
-            const soldDeals = PROJECTS.filter(p => p.status === 'sold' && p.owner === repName);
-            const unpaidDeals = soldDeals.filter(p => !p.paidOut);
-            const unpaidPot = Math.round(unpaidDeals.reduce((sum, p) => sum + (Number(p.setupFee || 0) * SETUP_COMM_RATE), 0));
-            const monthlyRecurring = soldDeals.reduce((sum, p) => sum + (p.hasMaintenance ? Number(p.monthlyFee || 0) * MONTHLY_COMM_RATE : 0), 0);
-            const paidOutTotal = Number((PAYOUTS[repName] && PAYOUTS[repName].paidOutTotal) || 0);
-            const lifetimeEarned = paidOutTotal + unpaidPot;
-            return { soldDeals, unpaidDeals, unpaidPot, monthlyRecurring, paidOutTotal, lifetimeEarned };
-        }
-
-        function renderAdminOverview() {
-            const awaitingDeploy = PROJECTS.filter(p => p.status === 'sold' && !p.deployed);
-            const alertBox = document.getElementById('adminDeployAlert');
-            const listEl = document.getElementById('deployQueueList');
-            document.getElementById('deployQueueCount').innerText = awaitingDeploy.length;
-
-            if (awaitingDeploy.length > 0) {
-                alertBox.classList.remove('hidden');
-                listEl.innerHTML = awaitingDeploy.map(p => `
-                    <div class="bg-slate-900/90 border border-emerald-500/30 p-3.5 rounded-2xl flex items-center justify-between gap-3">
-                        <div>
-                            <div class="text-xs font-extrabold text-white">${p.name} <span class="text-emerald-400">(£${p.setupFee}${p.hasMaintenance ? ` + £${p.monthlyFee}/mo` : ''})</span></div>
-                            <div class="text-[11px] text-slate-400">Sold by <strong class="text-amber-300">${p.owner}</strong> • ${p.phone} • ${p.email}</div>
-                        </div>
-                        <button onclick="toggleDeployed('${p.id}')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-3 py-1.5 rounded-xl text-xs whitespace-nowrap">
-                            Mark Deployed ✓
-                        </button>
-                    </div>
-                `).join('');
-            } else {
-                alertBox.classList.add('hidden');
-            }
-
-            const teamSummaryEl = document.getElementById('adminTeamSummary');
-            const reps = ['Josh', 'Scott', 'Leanne', 'Ross'];
-
-            teamSummaryEl.innerHTML = reps.map(name => {
-                const st = getRepStats(name);
-                return `
-                    <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-2xl flex flex-col justify-between space-y-3">
-                        <div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-extrabold text-white uppercase tracking-wider">${name}</span>
-                                <span class="text-[11px] font-bold text-slate-400">${st.soldDeals.length} Sold</span>
-                            </div>
-                            <div class="mt-2">
-                                <div class="text-[10px] text-amber-400 uppercase font-bold">Unpaid Pot (50%)</div>
-                                <div class="text-2xl font-extrabold text-amber-300">£${st.unpaidPot.toLocaleString()}</div>
-                            </div>
-                            <div class="mt-2 pt-2 border-t border-slate-800/80 flex justify-between text-[11px]">
-                                <span class="text-slate-400">Monthly: <strong class="text-emerald-400">£${st.monthlyRecurring.toFixed(2).replace(/\.00$/, '')}/mo</strong></span>
-                                <span class="text-slate-400">Paid Out: <strong class="text-white">£${st.paidOutTotal.toLocaleString()}</strong></span>
-                            </div>
-                        </div>
-                        <button onclick="issueRepPayout('${name}')" ${st.unpaidPot <= 0 ? 'disabled' : ''}
-                            class="w-full py-2 rounded-xl text-xs font-extrabold transition-all ${st.unpaidPot > 0 ? 'bg-amber-500 hover:bg-amber-400 text-slate-950' : 'bg-slate-800/60 text-slate-500 cursor-not-allowed'}">
-                            ${st.unpaidPot > 0 ? `Issue £${st.unpaidPot.toLocaleString()} Payout` : 'Pot Paid Up'}
-                        </button>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function stageBadge(p) {
-            if (p.status === 'revision') return `<span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/40">REVISION QUEUED</span>`;
-            if (p.status === 'review') return `<span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-300 border border-purple-500/30">NEEDS QA REVIEW</span>`;
-            if (p.status === 'sold') {
-                const depTag = p.deployed
-                    ? `<span class="text-[10px] font-extrabold uppercase px-2 py-1 rounded-md bg-slate-800 text-emerald-300 border border-emerald-500/30">LIVE DEPLOYED</span>`
-                    : `<span class="text-[10px] font-extrabold uppercase px-2 py-1 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/40">NEEDS DEPLOYMENT</span>`;
-                return `<span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">SOLD</span> ${depTag}`;
-            }
-            if (p.status === 'pitched') return `<span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-sky-500/20 text-sky-300 border border-sky-500/30">PITCHED</span>`;
-            if (p.status === 'unsold') return `<span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30">UNSOLD</span>`;
-            return `<span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">READY</span>`;
-        }
-
-        function renderProjects() {
-            const searchVal = document.getElementById('searchInput').value.toLowerCase();
-            const grid = document.getElementById('projectsGrid');
-
-            const visiblePool = currentUser.isAdmin ? PROJECTS : PROJECTS.filter(p => !['review', 'revision', 'rejected'].includes(p.status));
-            const reviewList = PROJECTS.filter(p => p.status === 'review' || p.status === 'revision');
-            const readyList = visiblePool.filter(p => p.status === 'ready');
-            const pitchedList = visiblePool.filter(p => p.status === 'pitched');
-            const soldList = visiblePool.filter(p => p.status === 'sold');
-            const unsoldList = visiblePool.filter(p => p.status === 'unsold');
-            const myList = visiblePool.filter(p => p.owner === currentUser.name);
-
-            const myStats = getRepStats(currentUser.name);
-
-            document.getElementById('metricMyPot').innerText = `£${myStats.unpaidPot.toLocaleString()}`;
-            document.getElementById('metricMyPotSub').innerText = `${myStats.unpaidDeals.length} unpaid deal(s) in pot`;
-            document.getElementById('metricMyMonthly').innerText = `£${myStats.monthlyRecurring.toFixed(2).replace(/\.00$/, '')}/mo`;
-            document.getElementById('metricMyMonthlySub').innerText = `20% recurring from ${myStats.soldDeals.filter(d => d.hasMaintenance).length} active site(s)`;
-            document.getElementById('metricMyPaidTotal').innerText = `£${myStats.paidOutTotal.toLocaleString()}`;
-            document.getElementById('metricMyDealsCount').innerText = `£${myStats.lifetimeEarned.toLocaleString()} lifetime earned (${myStats.soldDeals.length} sold)`;
-            document.getElementById('metricReady').innerText = readyList.length;
-            document.getElementById('metricSoldTeamSub').innerText = `${soldList.length} total team websites sold`;
-
-            document.getElementById('cnt-review').innerText = reviewList.length;
-            document.getElementById('cnt-all').innerText = visiblePool.filter(p => !['review', 'revision'].includes(p.status)).length;
-            document.getElementById('cnt-ready').innerText = readyList.length;
-            document.getElementById('cnt-pitched').innerText = pitchedList.length;
-            document.getElementById('cnt-sold').innerText = soldList.length;
-            document.getElementById('cnt-unsold').innerText = unsoldList.length;
-            document.getElementById('cnt-mine').innerText = myList.length;
-
-            let filtered = visiblePool.filter(p => p.status !== 'rejected').filter(p =>
-                p.name.toLowerCase().includes(searchVal) ||
-                p.category.toLowerCase().includes(searchVal) ||
-                p.location.toLowerCase().includes(searchVal)
-            );
-
-            if (currentTab === 'mine') {
-                filtered = filtered.filter(p => p.owner === currentUser.name);
-            } else if (currentTab === 'all') {
-                filtered = filtered.filter(p => !['review', 'revision'].includes(p.status));
-            } else if (currentTab === 'review') {
-                filtered = filtered.filter(p => p.status === 'review' || p.status === 'revision');
-            } else {
-                filtered = filtered.filter(p => p.status === currentTab);
-            }
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-2 text-center py-16 glass-card rounded-3xl"><p class="text-slate-400 text-sm">No sites in this stage yet.</p></div>`;
-                return;
-            }
-
-            grid.innerHTML = filtered.map(p => {
-                const instantComm = Math.round(Number(p.setupFee || 400) * SETUP_COMM_RATE);
-                const monthlyComm = (Number(p.monthlyFee || 45) * MONTHLY_COMM_RATE).toFixed(2).replace(/\.00$/, '');
-                const ownerLine = p.owner
-                    ? `<span class="text-xs text-amber-400 font-bold">Rep: ${p.owner}</span> <span class="text-[10px] text-slate-500">(${p.updatedAt || 'Active'})</span>`
-                    : `<span class="text-xs text-slate-400">Unassigned — click Claim or Pitched</span>`;
-
-                const soldExtraBanner = p.status === 'sold' ? `
-                    <div class="bg-emerald-500/10 border border-emerald-500/30 p-3 rounded-2xl flex items-center justify-between text-xs">
-                        <div>
-                            <span class="font-bold text-emerald-300">Earned: £${instantComm} setup${p.hasMaintenance ? ` + £${monthlyComm}/mo` : ''}</span>
-                            <div class="text-[10px] text-slate-400">${p.paidOut ? '✓ Included in Paid Out Total' : '● Sitting in Unpaid Payout Pot'}</div>
-                        </div>
-                        ${currentUser.isAdmin ? `
-                            <button onclick="toggleDeployed('${p.id}')" class="px-3 py-1.5 rounded-xl text-[11px] font-extrabold ${p.deployed ? 'bg-slate-800 text-emerald-300 border border-emerald-500/30' : 'bg-emerald-500 text-slate-950'}">
-                                ${p.deployed ? 'Deployed ✓' : 'Mark Deployed'}
-                            </button>
-                        ` : ''}
-                    </div>
-                ` : '';
-
-                return `
-                    <div class="glass-card p-6 rounded-3xl flex flex-col justify-between space-y-5 border border-slate-800/80 hover:border-slate-700 transition-all">
-                        <div class="space-y-3">
-                            <div class="flex items-start justify-between gap-3">
-                                <div>
-                                    <div class="flex items-center gap-2 flex-wrap">
-                                        ${stageBadge(p)}
-                                        <span class="text-[10px] font-bold text-slate-300 uppercase tracking-wider bg-slate-800/90 px-2.5 py-1 rounded-md">${p.category}</span>
-                                    </div>
-                                    <h3 class="text-xl font-extrabold text-white mt-2">${p.name}</h3>
-                                    <p class="text-xs text-slate-400">${p.location}</p>
-                                </div>
-                                <div class="flex flex-col sm:flex-row gap-2 shrink-0">
-                                    <a href="${p.demoUrl}" target="_blank" class="bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 px-3 py-2 rounded-xl text-xs font-bold transition-all text-center">
-                                        Live Preview
-                                    </a>
-                                    <a href="${p.demoUrl}" download="${p.downloadName || (p.id + '-demo.html')}" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-bold transition-all text-center">
-                                        Download HTML
-                                    </a>
-                                </div>
-                            </div>
-
-                            ${soldExtraBanner}
-
-                            <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl space-y-1.5 text-xs">
-                                <div class="flex justify-between"><span class="text-slate-400">Contact:</span> <strong class="text-slate-200">${p.contact}</strong></div>
-                                <div class="flex justify-between"><span class="text-slate-400">Phone:</span> <a href="tel:${p.phone}" class="text-amber-400 font-semibold hover:underline">${p.phone}</a></div>
-                                <div class="flex justify-between"><span class="text-slate-400">Email:</span> <a href="mailto:${p.email}" class="text-amber-400 font-semibold hover:underline">${p.email}</a></div>
-                            </div>
-
-                            <div class="bg-slate-950/60 border border-slate-800/60 p-4 rounded-2xl space-y-1.5">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Tailored Pitch Angle</span>
-                                <p class="text-xs text-slate-300 leading-relaxed">${p.pitch}</p>
-                                <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[11px]">
-                                    <span class="font-bold text-emerald-400">Price: £${p.setupFee} + £${p.monthlyFee}/mo</span>
-                                    <span class="font-extrabold text-amber-300 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md">
-                                        Payout: £${instantComm} instant + £${monthlyComm}/mo
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="pt-3 border-t border-slate-800/80 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div>${ownerLine}</div>
-                                ${!p.owner && !['review', 'revision'].includes(p.status) ? `<button onclick="claimProject('${p.id}')" class="text-xs font-bold text-amber-400 hover:text-amber-300 underline">Claim Lead</button>` : ''}
-                            </div>
-                            ${(p.status === 'review' || p.status === 'revision') ? `
-                            ${p.status === 'revision' && p.revisionNote ? `<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-2.5 text-[11px] text-amber-200 mb-2"><strong>O.T.I.S. Revision Brief:</strong> ${p.revisionNote}</div>` : ''}
-                            <div class="grid grid-cols-3 gap-2">
-                                <button onclick="setProjectStage('${p.id}', 'ready')" class="py-2.5 rounded-xl text-xs font-extrabold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all">
-                                    ✓ Approve
-                                </button>
-                                <button onclick="requestRevision('${p.id}')" class="py-2.5 rounded-xl text-xs font-extrabold bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition-all">
-                                    ↻ Revise
-                                </button>
-                                <button onclick="setProjectStage('${p.id}', 'rejected')" class="py-2.5 rounded-xl text-xs font-extrabold bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 transition-all">
-                                    ✕ Delete
-                                </button>
-                            </div>` : `
-                            <div class="grid grid-cols-4 gap-2">
-                                <button onclick="setProjectStage('${p.id}', 'ready')" class="py-2 rounded-xl text-xs font-bold border transition-all ${p.status === 'ready' ? 'bg-amber-500 text-slate-950 border-amber-400' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-700'}">
-                                    Ready
-                                </button>
-                                <button onclick="setProjectStage('${p.id}', 'pitched')" class="py-2 rounded-xl text-xs font-bold border transition-all ${p.status === 'pitched' ? 'bg-sky-500 text-slate-950 border-sky-400' : 'bg-slate-900 hover:bg-slate-800 text-sky-300 border-slate-700'}">
-                                    Pitched
-                                </button>
-                                <button onclick="setProjectStage('${p.id}', 'sold')" class="py-2 rounded-xl text-xs font-bold border transition-all ${p.status === 'sold' ? 'bg-emerald-500 text-slate-950 border-emerald-400' : 'bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border-emerald-500/30'}">
-                                    Sold
-                                </button>
-                                <button onclick="setProjectStage('${p.id}', 'unsold')" class="py-2 rounded-xl text-xs font-bold border transition-all ${p.status === 'unsold' ? 'bg-rose-500 text-white border-rose-400' : 'bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border-rose-500/30'}">
-                                    Unsold
-                                </button>
-                            </div>`}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedUser = localStorage.getItem('otis_current_user');
-            if (savedUser) {
-                currentUser = JSON.parse(savedUser);
-                initDashboard();
-            }
-        });
-    </script>
+    try {
+      const savedRole = sessionStorage.getItem("wc_role");
+      if (savedRole) {
+        sessionRole = savedRole;
+        sessionUser = sessionStorage.getItem("wc_user") || "";
+        activeTab = sessionRole === "admin" ? "review" : "ready";
+        bootPortal();
+      }
+    } catch (_) {}
+  </script>
 </body>
 </html>
