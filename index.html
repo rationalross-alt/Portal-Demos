@@ -210,9 +210,11 @@
       if (!btn) return;
       const act = btn.dataset.action;
       if (act === "preview") {
+        const baseHref = location.href.endsWith("/") ? location.href : location.href + "/";
+        const resolvedUrl = new URL(btn.dataset.url, baseHref).href;
         document.getElementById("modal-title").textContent = btn.dataset.name;
-        document.getElementById("modal-ext").href = btn.dataset.url;
-        document.getElementById("modal-frame").src = btn.dataset.url;
+        document.getElementById("modal-ext").href = resolvedUrl;
+        document.getElementById("modal-frame").src = resolvedUrl;
         const m = document.getElementById("modal");
         m.classList.remove("hidden");
         m.classList.add("flex");
