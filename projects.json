@@ -50,6 +50,40 @@
       "pitch": "Social/directory page only (instagram.com). Built a mobile-ready coffee shop preview tailored to 45 Kings Rd, Brentwood CM14 4DJ (£450 setup + £45/mo).",
       "demoUrl": "websites/review/malina-patisserie/offline_preview.html",
       "updatedAt": "20 Nov, 02:02"
+    },
+    {
+      "id": "the-windmill-cafe",
+      "name": "The Windmill Cafe",
+      "category": "Coffee shop",
+      "location": "Roman Rd, Mountnessing, Brentwood CM15 0UH",
+      "phone": "07359 237286",
+      "email": "No public email — call or DM",
+      "contactPerson": "Ask for Owner / Manager",
+      "rating": "4.8",
+      "status": "review",
+      "owner": "",
+      "setupFee": 450,
+      "monthlyFee": 45,
+      "pitch": "No website listed on Google. Built a mobile-ready coffee shop preview tailored to Roman Rd, Mountnessing, Brentwood CM15 0UH (£450 setup + £45/mo).",
+      "demoUrl": "websites/review/the-windmill-cafe/offline_preview.html",
+      "updatedAt": "20 Nov, 02:06"
+    },
+    {
+      "id": "caffe-piccolo",
+      "name": "Caffe Piccolo",
+      "category": "Coffee shop",
+      "location": "37 Ongar Rd, Brentwood CM15 9AU",
+      "phone": "01277 711191",
+      "email": "No public email — call or DM",
+      "contactPerson": "Ask for Owner / Manager",
+      "rating": "4.9",
+      "status": "review",
+      "owner": "",
+      "setupFee": 450,
+      "monthlyFee": 45,
+      "pitch": "No website listed on Google. Built a mobile-ready coffee shop preview tailored to 37 Ongar Rd, Brentwood CM15 9AU (£450 setup + £45/mo).",
+      "demoUrl": "websites/review/caffe-piccolo/offline_preview.html",
+      "updatedAt": "20 Nov, 02:06"
     }
   ]
 }
