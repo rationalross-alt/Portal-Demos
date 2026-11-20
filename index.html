@@ -78,6 +78,7 @@
           <span id="stat-income" class="px-3 py-1.5 rounded-lg bg-indigo-950/70 border border-indigo-700/50 text-indigo-200 font-semibold">&pound;0 Setup &bull; &pound;0/mo</span>
           <span id="stat-rdy" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-emerald-300 font-semibold">0 Leads</span>
           <span id="stat-rev" class="hidden px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-700/50 text-amber-300 font-semibold">0 Private QA Review</span>
+          <button type="button" id="dash-btn" class="px-3 py-1.5 rounded-lg bg-indigo-950 hover:bg-indigo-900 border border-indigo-700/60 text-indigo-200 font-semibold">My Dashboard</button>
           <button type="button" id="lock-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300">Lock</button>
         </div>
       </div>
@@ -94,6 +95,52 @@
 
       <div id="grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </main>
+  </div>
+
+
+  <!-- STAFF ACCOUNT & PIN DASHBOARD -->
+  <div id="dash-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-lg p-6 shadow-2xl space-y-5">
+      <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+        <div>
+          <h2 class="text-lg font-bold">My Staff Dashboard</h2>
+          <p class="text-xs text-slate-400">Manage your details, PIN, and personal lead pipeline.</p>
+        </div>
+        <button type="button" id="dash-close" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300">Close</button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 bg-slate-950/80 border border-slate-800 rounded-xl p-4 text-xs">
+        <div>
+          <p class="text-slate-400">Signed In As</p>
+          <p id="dash-user-display" class="text-sm font-bold text-white mt-0.5">-</p>
+        </div>
+        <div>
+          <p class="text-slate-400">Active PIN</p>
+          <p id="dash-pin-display" class="text-sm font-mono font-bold text-emerald-400 mt-0.5">-</p>
+        </div>
+        <div class="col-span-2 pt-2 border-t border-slate-800/80 flex justify-between items-center">
+          <span class="text-slate-400">My Claimed Pipeline</span>
+          <span id="dash-income-display" class="font-semibold text-indigo-300">&pound;0 + &pound;0/mo</span>
+        </div>
+      </div>
+
+      <form id="dash-form" class="space-y-3.5">
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">Display Name</label>
+          <input id="dash-name" type="text" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm focus:outline-none focus:border-indigo-500" />
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">Email Address</label>
+          <input id="dash-email" type="email" placeholder="name@example.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm focus:outline-none focus:border-indigo-500" />
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">New 4-Digit PIN (leave blank to keep current PIN)</label>
+          <input id="dash-new-pin" type="password" inputmode="numeric" maxlength="4" pattern="\d{4}" placeholder="e.g. 4829" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 font-mono text-sm focus:outline-none focus:border-indigo-500" />
+        </div>
+        <p id="dash-status" class="text-xs hidden"></p>
+        <button type="submit" id="dash-save-btn" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-semibold text-sm transition">Save Changes</button>
+      </form>
+    </div>
   </div>
 
   <!-- INLINE DEMO PREVIEW MODAL -->
@@ -150,6 +197,7 @@
       try {
         sessionStorage.setItem("wc_role", sessionRole);
         sessionStorage.setItem("wc_user", sessionUser);
+        sessionStorage.setItem("wc_pin", code);
       } catch (_) {}
       bootPortal();
       return false;
@@ -345,8 +393,91 @@
       }
     });
 
+
+    let sessionPin = "";
+
+    function openDashboard() {
+      const m = document.getElementById("dash-modal");
+      document.getElementById("dash-user-display").textContent = sessionUser;
+      document.getElementById("dash-pin-display").textContent = sessionPin || "(hidden)";
+      document.getElementById("dash-income-display").textContent = document.getElementById("stat-income").textContent.replace(/^My Pipeline:\s*/i, "");
+      document.getElementById("dash-name").value = sessionRole === "admin" ? sessionUser : sessionUser;
+      document.getElementById("dash-email").value = "";
+      document.getElementById("dash-new-pin").value = "";
+      const st = document.getElementById("dash-status");
+      st.classList.add("hidden");
+      m.classList.remove("hidden");
+      m.classList.add("flex");
+    }
+
+    async function saveDashboard(e) {
+      e.preventDefault();
+      const st = document.getElementById("dash-status");
+      const btn = document.getElementById("dash-save-btn");
+      const name = (document.getElementById("dash-name").value || "").trim();
+      const email = (document.getElementById("dash-email").value || "").trim();
+      const newPin = (document.getElementById("dash-new-pin").value || "").trim();
+
+      if (sessionRole === "admin") {
+        sessionUser = name || sessionUser;
+        document.getElementById("role-badge").textContent = sessionUser;
+        st.className = "text-xs text-emerald-400";
+        st.textContent = "Admin display name updated for this session (PIN 2408 remains unchanged).";
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Saving...";
+      st.className = "text-xs text-slate-300";
+      st.textContent = "Updating profile and syncing PIN...";
+
+      try {
+        const res = await fetch(${NOX_API_BASE}/api/portal/update-profile, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            current_pin: sessionPin,
+            name,
+            email,
+            new_pin: newPin
+          })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Update failed");
+
+        STAFF_CODES[String(data.pin)] = data.name;
+        sessionUser = data.name;
+        sessionPin = String(data.pin);
+        try {
+          sessionStorage.setItem("wc_user", sessionUser);
+          sessionStorage.setItem("wc_pin", sessionPin);
+        } catch (_) {}
+        document.getElementById("role-badge").textContent = sessionUser;
+        document.getElementById("dash-user-display").textContent = sessionUser;
+        document.getElementById("dash-pin-display").textContent = sessionPin;
+        document.getElementById("dash-new-pin").value = "";
+        st.className = "text-xs text-emerald-400";
+        st.textContent = data.message || "Saved! Your new PIN is active.";
+      } catch (err) {
+        st.className = "text-xs text-rose-400";
+        st.textContent = err.message;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Save Changes";
+      }
+    }
+
+    document.getElementById("dash-btn").addEventListener("click", openDashboard);
+    document.getElementById("dash-close").addEventListener("click", () => {
+      const m = document.getElementById("dash-modal");
+      m.classList.add("hidden");
+      m.classList.remove("flex");
+    });
+    document.getElementById("dash-form").addEventListener("submit", saveDashboard);
+
     try {
       const savedRole = sessionStorage.getItem("wc_role");
+      sessionPin = sessionStorage.getItem("wc_pin") || "";
       if (savedRole) {
         sessionRole = savedRole;
         sessionUser = sessionStorage.getItem("wc_user") || "";
