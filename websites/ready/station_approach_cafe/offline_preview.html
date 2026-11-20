@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Approach Cafe | Commuter Fuel & Artisan Brews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rail-black: #111316;
+            --signal-red: #D9381E;
+            --platform-steel: #2A303C;
+            --concrete: #EFEFF1;
+            --white: #FFFFFF;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'IBM Plex Sans', sans-serif; }
+        body { background-color: var(--concrete); color: var(--rail-black); line-height: 1.5; }
+        
+        header {
+            background: var(--rail-black);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            border-bottom: 4px solid var(--signal-red);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--white); }
+        .logo span { color: var(--signal-red); }
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+        nav a:hover { color: var(--signal-red); }
+        .cta-btn { background: var(--signal-red); color: var(--white); padding: 0.7rem 1.4rem; font-weight: 700; text-decoration: none; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .hero {
+            background: linear-gradient(rgba(17,19,22,0.85), rgba(17,19,22,0.85)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: var(--white);
+            padding: 7rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 4.5rem; font-weight: 800; line-height: 1.05; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .hero h1 span { color: var(--signal-red); }
+        .hero p { font-size: 1.15rem; color: #D1D5DB; margin-bottom: 2rem; max-width: 500px; }
+        .train-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(217,56,30,0.2); border: 1px solid var(--signal-red); padding: 0.4rem 1rem; color: var(--white); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1rem; }
+
+        .ticker {
+            background: var(--signal-red);
+            color: var(--white);
+            padding: 0.8rem 5%;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .services {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 800; text-transform: uppercase; margin-bottom: 3rem; border-left: 6px solid var(--signal-red); padding-left: 1rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .card { background: var(--white); border: 1px solid #D1D5DB; padding: 2.5rem; border-radius: 4px; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; }
+        .card p { color: #4B5563; font-size: 0.95rem; }
+
+        .notice-banner {
+            background: #FEF2F2;
+            border-left: 4px solid var(--signal-red);
+            padding: 1.5rem 5%;
+            margin: 3rem 5%;
+            font-size: 0.95rem;
+            color: #991B1B;
+        }
+
+        footer {
+            background: var(--rail-black);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 4px solid var(--signal-red);
+        }
+        footer p { color: #9CA3AF; font-size: 0.9rem; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Station Approach <span>Cafe</span></div>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#commute">Commuter Club</a>
+            <a href="#location">Platform 1</a>
+        </nav>
+        <a href="#order" class="cta-btn">Order Ahead</a>
+    </header>
+
+    <section class="hero">
+        <div>
+            <div class="train-badge">⏱️ Express Service for Busy Commuters</div>
+            <h1>Fast Brews. <span>Better Mornings.</span></h1>
+            <p>Located right at the station gates. Specialty single-origin espresso, warm flaky pastries, and hearty breakfast baps ready before your train arrives.</p>
+            <a href="#menu" class="cta-btn" style="padding: 1rem 2rem; font-size: 1.05rem;">View Platform Menu</a>
+        </div>
+        <div style="background: var(--platform-steel); padding: 2rem; border-radius: 4px; border: 1px solid #374151;">
+            <h3 style="font-family: 'Barlow Condensed'; font-size: 1.8rem; color: var(--white); margin-bottom: 1rem; text-transform: uppercase;">Live Platform Status</h3>
+            <div style="display: flex; flex-direction: column; gap: 1rem; color: var(--white);">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #4B5563; padding-bottom: 0.5rem;">
+                    <span>Flat White Express</span>
+                    <span style="color: #10B981; font-weight: 700;">ON TIME</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #4B5563; padding-bottom: 0.5rem;">
+                    <span>Bacon & Egg Brioche</span>
+                    <span style="color: #10B981; font-weight: 700;">READY NOW</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Commuter Season Pass</span>
+                    <span style="color: var(--signal-red); font-weight: 700;">SAVE 20%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="ticker">
+        <span>⚡ FAST TRACK ORDERING AVAILABLE</span>
+        <span>•</span>
+        <span>☕ OPEN MON-FRI FROM 06:00</span>
+        <span>•</span>
+        <span>🥐 FRESH PASTRIES DAILY</span>
+    </div>
+
+    <section class="services" id="menu">
+        <h2 class="section-title">Platform Menu</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>The Express Brew</h3>
+                <p>Double shot espresso pulled to perfection using our signature dark roast beans. Designed for maximum morning momentum.</p>
+            </div>
+            <div class="card">
+                <h3>Station Baps</h3>
+                <p>Locally sourced thick-cut bacon or Cumberland sausage in a toasted buttered brioche roll with artisanal house relish.</p>
+            </div>
+            <div class="card">
+                <h3>Morning Bakery</h3>
+                <p>All-butter croissants, pain au chocolat, and seasonal fruit Danishes baked fresh every morning before the first train.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="notice-banner">
+        <strong>📸 Onboarding & Custom Photography Note:</strong> All imagery currently utilised is temporary placeholder stock. Professional on-site commercial photography packages are available upon request to capture your exact station storefront, barista team, and signature morning baps.
+    </div>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 1rem;">Station Approach <span>Cafe</span></div>
+        <p>© 2025 Station Approach Cafe. All rights reserved. Powered by O.T.I.S. Agency Services.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #6B7280;">Includes Managed Growth & Maintenance Tier (£45/mo).</p>
+    </footer>
+
+</body>
+</html>

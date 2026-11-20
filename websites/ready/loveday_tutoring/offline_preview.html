@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loveday Tutoring | Elite Private Tuition in Brentwood & Essex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f4f6fc',
+                            100: '#e7ecf9',
+                            500: '#3b5bdb',
+                            600: '#2f48c1',
+                            900: '#1a2c7a',
+                        },
+                        accent: {
+                            gold: '#d4af37',
+                            light: '#fcf8e8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark-glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-900 via-brand-600 to-brand-900 text-white text-xs md:text-sm py-2 px-4 text-center font-medium tracking-wide">
+        <i class="fas fa-graduation-cap text-accent-gold mr-2"></i> Now accepting students for 2024/25 Academic Year across Brentwood, Shenfield & Hutton. <a href="#contact" class="underline ml-2 font-semibold hover:text-accent-gold transition-colors">Book Free Consultation &rarr;</a>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent-gold to-yellow-200 flex items-center justify-center text-slate-900 font-bold text-xl shadow-lg shadow-accent-gold/20 font-serif">
+                    L
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white font-serif">Loveday</span>
+                    <span class="text-xl font-light text-brand-500 tracking-wide">Tutoring</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-accent-gold transition-colors">Philosophy</a>
+                <a href="#services" class="hover:text-accent-gold transition-colors">Programs</a>
+                <a href="#results" class="hover:text-accent-gold transition-colors">Success</a>
+                <a href="#tutors" class="hover:text-accent-gold transition-colors">Our Tutors</a>
+            </div>
+            <div>
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-accent-gold hover:bg-yellow-400 text-slate-900 font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-accent-gold/10 text-sm">
+                    Enquire Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Parallax -->
+    <header class="relative min-h-[90vh] flex items-center justify-center parallax-bg overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2000&q=80');">
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/70 to-slate-950"></div>
+
+        <div class="relative max-w-5xl mx-auto px-6 py-24 text-center z-10">
+            <div class="inline-flex items-center space-x-2 bg-brand-500/20 border border-brand-500/40 text-brand-300 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md">
+                <i class="fas fa-star text-accent-gold text-[10px]"></i>
+                <span>Brentwood's Premier Private Tuition Agency</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
+                Unlocking Academic Excellence in <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold via-yellow-200 to-amber-400">Essex</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Elite, bespoke private tuition across <strong class="text-white font-medium">all subjects</strong>. Tailored 1-to-1 mentoring designed to build absolute confidence, mastery, and top-tier exam results.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="w-full sm:w-auto bg-accent-gold hover:bg-yellow-400 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-xl shadow-accent-gold/20 transition-all text-center text-base">
+                    Book Free Consultation
+                </a>
+                <a href="#services" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700/80 text-white font-medium px-8 py-4 rounded-xl backdrop-blur-md border border-slate-700 transition-all text-center text-base">
+                    Explore All Subjects
+                </a>
+            </div>
+
+            <!-- Trust Badges Under Hero -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-slate-800/80 text-left">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-accent-gold">
+                        <i class="fas fa-shield-check text-lg"></i>
+                    </div>
+                    <div>
+                        <div class="text-white font-semibold text-sm">100% DBS Checked</div>
+                        <div class="text-xs text-slate-400">Enhanced Vetting</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-accent-gold">
+                        <i class="fas fa-map-marker-alt text-lg"></i>
+                    </div>
+                    <div>
+                        <div class="text-white font-semibold text-sm">Local Experts</div>
+                        <div class="text-xs text-slate-400">Brentwood & Surrounds</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-accent-gold">
+                        <i class="fas fa-book-open text-lg"></i>
+                    </div>
+                    <div>
+                        <div class="text-white font-semibold text-sm">All Subjects</div>
+                        <div class="text-xs text-slate-400">Primary to A-Level</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-accent-gold">
+                        <i class="fas fa-chart-line text-lg"></i>
+                    </div>
+                    <div>
+                        <div class="text-white font-semibold text-sm">Proven Results</div>
+                        <div class="text-xs text-slate-400">Top Grades Secured</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About / Philosophy Section -->
+    <section id="about" class="py-24 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-accent-gold text-xs font-bold uppercase tracking-widest block mb-3">The Loveday Standard</span>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6">
+                        Education tailored to how your child actually learns.
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed mb-6 font-light">
+                        Based in the heart of Essex, Loveday Tutoring was founded on a simple principle: standard classroom teaching often leaves gaps. Our elite tutors don't just teach the syllabus; they instill critical thinking, dispel exam anxiety, and turn academic hurdles into strengths.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed mb-8 font-light">
+                        Whether preparing for 11+ grammar school entrance exams, securing top grades in GCSE Maths and Science, or navigating university-qualifying A-Levels, our bespoke mentoring delivers transformative results.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4 border-t border-slate-800">
+                        <div>
+                            <div class="text-3xl font-bold font-serif text-accent-gold mb-1">98%</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider">Target Grades Achieved</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold font-serif text-accent-gold mb-1">1-to-1</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider">Personalised Attention</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-500 to-accent-gold rounded-3xl blur-2xl opacity-20"></div>
+                    <div class="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="Tutoring Session" class="w-full h-[450px] object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Mid-Banner -->
+    <section class="py-28 parallax-bg relative text-center" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=2000&q=80');">
+        <div class="absolute inset-0 bg-slate-950/85"></div>
+        <div class="relative max-w-4xl mx-auto px-6 z-10">
+            <span class="text-accent-gold text-xs font-bold uppercase tracking-widest block mb-3">Excellence Across Essex</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6">
+                Serving Brentwood, Shenfield, Hutton & Surrounding Areas
+            </h2>
+            <p class="text-slate-300 text-lg mb-10 font-light max-w-2xl mx-auto">
+                In-home tuition or online sessions structured around your family's busy schedule.
+            </p>
+            <a href="#contact" class="inline-block bg-accent-gold hover:bg-yellow-400 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-xl transition-all">
+                Check Tutor Availability in Your Area
+            </a>
+        </div>
+    </section>
+
+    <!-- Services / Subjects Section -->
+    <section id="services" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-accent-gold text-xs font-bold uppercase tracking-widest block mb-3">Comprehensive Tuition</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4">
+                    All Subjects & Academic Stages
+                </h2>
+                <p class="text-slate-400 font-light">
+                    From foundational primary confidence-building to rigorous A-Level preparation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="dark-glass rounded-2xl p-8 hover:border-accent-gold/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center text-accent-gold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Primary & 11+ Entry</h3>
+                        <p class="text-slate-300 text-sm font-light leading-relaxed mb-6">
+                            Building core literacy and numeracy foundations. Specialist preparation for grammar and independent school entrance examinations across Essex.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4">
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> Maths & English Mastery</li>
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> Verbal & Non-Verbal Reasoning</li>
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> Mock Exam Practice</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="dark-glass rounded-2xl p-8 hover:border-accent-gold/50 transition-all group flex flex-col justify-between border-accent-gold/30 shadow-lg shadow-accent-gold/5">
+                    <div>
+                        <div class="inline-block px-3 py-1 bg-accent-gold text-slate-900 font-bold text-[10px] rounded-full uppercase mb-4 tracking-wider">Most Popular</div>
+                        <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center text-accent-gold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">GCSE All Subjects</h3>
+                        <p class="text-slate-300 text-sm font-light leading-relaxed mb-6">
+                            Targeted support across all core and elective GCSE subjects. Mastering exam technique, past papers, and grading criteria for grades 7–9.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4">
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> Maths, English & Triple Science</li>
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> Humanities & Modern Languages</li>
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> Revision & Stress Management</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="dark-glass rounded-2xl p-8 hover:border-accent-gold/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center text-accent-gold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">A-Level Specialists</h3>
+                        <p class="text-slate-300 text-sm font-light leading-relaxed mb-6">
+                            Advanced subject mentoring to secure top university placements. Rigorous academic guidance tailored to OCR, AQA, Edexcel, and WJEC specifications.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4">
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> STEM & Sciences Focus</li>
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> Economics, History & Lit</li>
+                        <li><i class="fas fa-check text-accent-gold mr-2"></i> University Entrance Prep</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Booking Section -->
+    <section id="contact" class="py-24 bg-gradient-to-b from-slate-900 to-slate-950 relative">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="dark-glass rounded-3xl p-8 md:p-14 border border-slate-700 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-accent-gold/10 rounded-full blur-3xl"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-accent-gold text-xs font-bold uppercase tracking-widest block mb-3">Get in Touch</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
+                            Book Your Free Consultation
+                        </h2>
+                        <p class="text-slate-300 text-sm font-light leading-relaxed mb-8">
+                            Speak directly with our academic coordinators. We'll discuss your child's goals, assess their current standing, and pair them with the ideal Brentwood tutor.
+                        </p>
+                        <div class="space-y-4 text-sm text-slate-300">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-accent-gold/10 flex items-center justify-center text-accent-gold">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <span class="font-medium">01277 550 192</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-accent-gold/10 flex items-center justify-center text-accent-gold">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <span class="font-medium">enquiries@lovedaytutoring.co.uk</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-accent-gold/10 flex items-center justify-center text-accent-gold">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <span class="font-medium">Brentwood & Surrounding Essex Areas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Loveday Tutoring will be in touch shortly to schedule your consultation.');">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Parent / Guardian Name</label>
+                            <input type="text" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent-gold transition-colors" placeholder="e.g. Sarah Jenkins">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Phone Number</label>
+                                <input type="tel" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent-gold transition-colors" placeholder="07123 456789">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Student's Year Group</label>
+                                <select class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent-gold transition-colors">
+                                    <option>Primary / 11+</option>
+                                    <option>GCSE (Years 10-11)</option>
+                                    <option>A-Level (Years 12-13)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Subjects Required</label>
+                            <input type="text" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent-gold transition-colors" placeholder="e.g. Maths, Chemistry, English">
+                        </div>
+                        <button type="submit" class="w-full bg-accent-gold hover:bg-yellow-400 text-slate-900 font-bold py-4 rounded-xl shadow-lg transition-all text-base mt-2">
+                            Request Free Assessment
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-accent-gold flex items-center justify-center text-slate-900 font-bold font-serif">
+                    L
+                </div>
+                <span class="text-white font-semibold font-serif text-base">Loveday Tutoring</span>
+            </div>
+            <p class="text-xs text-slate-500">
+                &copy; 2024 Loveday Tutoring. All rights reserved. Proudly serving Brentwood, Shenfield, Hutton & Essex.
+            </p>
+            <div class="flex space-x-6 text-xs">
+                <a href="#" class="hover:text-accent-gold transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-accent-gold transition-colors">Safeguarding Policy</a>
+                <a href="#" class="hover:text-accent-gold transition-colors">Tutor Login</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

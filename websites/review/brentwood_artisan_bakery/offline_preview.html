@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Brentwood Artisan Bakery | Handcrafted Sourdough & Patisserie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF8F5; color: #2C2623; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .bakes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    </style>
+</head>
+<body class="selection:bg-amber-800 selection:text-white">
+    <!-- Top Notice / Announcement Bar -->
+    <div class="bg-[#2C2623] text-[#F3EEEA] text-xs py-2 px-4 text-center font-medium tracking-wide">
+        ✨ Fresh out of the ovens every morning from 7:30 AM • High Street, Brentwood • Pre-order celebration cakes online
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-amber-900/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <span class="font-serif text-2xl font-bold tracking-tight text-[#2C2623]">The Brentwood Artisan</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#5C534D]">
+                <a href="#menu" class="hover:text-[#2C2623] transition">Daily Bakes</a>
+                <a href="#story" class="hover:text-[#2C2623] transition">Our Heritage</a>
+                <a href="#order" class="hover:text-[#2C2623] transition">Click & Collect</a>
+                <a href="#contact" class="hover:text-[#2C2623] transition">Find Us</a>
+            </nav>
+            <a href="#order" class="bg-[#2C2623] text-[#FAF8F5] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-amber-900 transition shadow-sm">
+                Order Box
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section: Warm Tactile Card Stack Layout -->
+    <section class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <span class="inline-block bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                    Brentwood's Premier Independent Bakery
+                </span>
+                <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[#2C2623] leading-[1.1]">
+                    Slow fermented. Hand shaped. <span class="italic font-normal text-amber-800">Baked with soul.</span>
+                </h1>
+                <p class="text-lg text-[#5C534D] max-w-xl leading-relaxed">
+                    Every loaf of sourdough we create takes 36 hours of patient fermentation using organic Essex flours and our wild 12-year-old starter. Taste the artisanal difference in Brentwood.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#order" class="bg-[#2C2623] text-[#FAF8F5] px-8 py-4 rounded-full font-semibold hover:bg-amber-900 transition shadow-md flex items-center gap-2">
+                        <span>Reserve Morning Bakes</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <a href="#menu" class="border border-[#2C2623]/20 bg-white text-[#2C2623] px-8 py-4 rounded-full font-semibold hover:border-[#2C2623] transition">
+                        View Menu
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-amber-200/50 rounded-3xl transform rotate-2"></div>
+                    <div class="relative bg-white p-4 rounded-3xl shadow-xl border border-amber-900/10">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Fresh artisan sourdough bread" class="rounded-2xl w-full h-[380px] object-cover">
+                        <div class="mt-4 flex items-center justify-between px-2">
+                            <div>
+                                <h3 class="font-serif font-bold text-lg">Signature Country Sourdough</h3>
+                                <p class="text-xs text-[#5C534D]">Organic White & Dark Rye</p>
+                            </div>
+                            <span class="font-serif font-bold text-amber-900 text-lg">£4.80</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Menu & Specials -->
+    <section id="menu" class="py-20 bg-white border-y border-amber-900/10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#2C2623]">Fresh From The Ovens Today</h2>
+                <p class="text-[#5C534D]">Limited daily batches. Order online before 6 PM for next-day morning collection.</p>
+            </div>
+            <div class="bakes-grid">
+                <!-- Item 1 -->
+                <div class="bg-[#FAF8F5] p-6 rounded-2xl border border-amber-900/10 hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=600&q=80" alt="Sourdough Loaf" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-serif font-bold text-xl">Classic Country Sourdough</h3>
+                        <span class="font-serif font-bold text-amber-900">£4.80</span>
+                    </div>
+                    <p class="text-sm text-[#5C534D] mb-4">Blended organic stoneground flour, crisp blistered crust, open moist crumb.</p>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-md">Vegan Friendly</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-[#FAF8F5] p-6 rounded-2xl border border-amber-900/10 hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Almond Croissant" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-serif font-bold text-xl">Double-Baked Almond Croissant</h3>
+                        <span class="font-serif font-bold text-amber-900">£3.95</span>
+                    </div>
+                    <p class="text-sm text-[#5C534D] mb-4">All-butter flaky pastry filled with rich frangipane and toasted flaked almonds.</p>
+                    <span class="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-md">Customer Favourite</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-[#FAF8F5] p-6 rounded-2xl border border-amber-900/10 hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80" alt="Cinnamon Bun" class="w-full h-48 object-cover rounded-xl mb-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-serif font-bold text-xl">Cardamom & Cinnamon Knot</h3>
+                        <span class="font-serif font-bold text-amber-900">£3.60</span>
+                    </div>
+                    <p class="text-sm text-[#5C534D] mb-4">Enriched brioche dough twisted with ground cardamom, dark brown sugar and butter.</p>
+                    <span class="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-md">Freshly Baked at 7 AM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Click & Collect Form -->
+    <section id="order" class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="bg-[#2C2623] text-[#FAF8F5] p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-amber-900/30 rounded-full blur-3xl"></div>
+            <div class="relative z-10">
+                <div class="max-w-xl mb-8">
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Click & Collect Service</span>
+                    <h2 class="font-serif text-3xl font-bold mt-2">Reserve Your Morning Bakery Box</h2>
+                    <p class="text-[#D3CBC4] text-sm mt-2">Skip the morning queue. Secure your sourdough and pastries for collection between 8:00 AM and 11:30 AM.</p>
+                </div>
+                <form id="orderForm" onsubmit="event.preventDefault(); alert('Thank you! Your reservation for Brentwood Artisan Bakery has been received. We will send a confirmation text shortly.');" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-[#D3CBC4] uppercase tracking-wider mb-2">Your Name</label>
+                            <input type="text" required class="w-full bg-[#3D3530] border border-[#5C534D] rounded-xl px-4 py-3 text-white placeholder-[#8C827A] focus:outline-none focus:border-amber-400" placeholder="e.g. Sarah Jenkins">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-[#D3CBC4] uppercase tracking-wider mb-2">Phone Number</label>
+                            <input type="tel" required class="w-full bg-[#3D3530] border border-[#5C534D] rounded-xl px-4 py-3 text-white placeholder-[#8C827A] focus:outline-none focus:border-amber-400" placeholder="e.g. 07700 900123">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-[#D3CBC4] uppercase tracking-wider mb-2">Select Bakery Box / Items</label>
+                        <select class="w-full bg-[#3D3530] border border-[#5C534D] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-400">
+                            <option>Weekend Sourdough & Pastry Box (£14.50)</option>
+                            <option>2x Country Sourdough Loaves (£9.60)</option>
+                            <option>Morning Breakfast Box (Coffee + 2 Pastries) (£7.50)</option>
+                            <option>Custom Celebration Cake Enquiry</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-[#D3CBC4] uppercase tracking-wider mb-2">Collection Date & Time Slot</label>
+                        <input type="text" required class="w-full bg-[#3D3530] border border-[#5C534D] rounded-xl px-4 py-3 text-white placeholder-[#8C827A] focus:outline-none focus:border-amber-400" placeholder="Tomorrow between 8:30 AM - 9:00 AM">
+                    </div>
+                    <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-4 rounded-xl transition shadow-lg text-lg">
+                        Confirm Reservation & Collect
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Mandatory Onboarding & Maintenance Terms -->
+    <footer id="contact" class="bg-[#1E1917] text-[#D3CBC4] py-16 px-6 border-t border-amber-900/20">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <h3 class="font-serif text-2xl font-bold text-white mb-4">The Brentwood Artisan</h3>
+                <p class="text-sm leading-relaxed text-[#A69B93]">
+                    Crafting honest sourdough and exquisite pastries in the heart of Brentwood. Proudly independent and locally sourced.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Opening Hours</h4>
+                <p class="text-sm text-[#A69B93] mb-2">Monday – Saturday: 7:30 AM – 3:00 PM</p>
+                <p class="text-sm text-[#A69B93]">Sunday: 8:00 AM – 1:00 PM</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Location & Contact</h4>
+                <p class="text-sm text-[#A69B93] mb-2">High Street, Brentwood, Essex, CM14 4RG</p>
+                <p class="text-sm text-[#A69B93]">Tel: 01277 889922</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-[#3D3530] text-center text-xs text-[#8C827A] space-y-2">
+            <p>© 2026 The Brentwood Artisan Bakery. All rights reserved. Built by O.T.I.S. Web Agency (Essex).</p>
+            <p>Note: Imagery is temporary and fully customisable (local professional photography support available). Maintained under O.T.I.S. Web Agency £45/mo ongoing maintenance & update subscription tier.</p>
+        </div>
+    </footer>
+</body>
+</html>

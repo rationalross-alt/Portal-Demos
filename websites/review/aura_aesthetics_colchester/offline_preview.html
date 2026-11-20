@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colchester Premier Aesthetics & Skin Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0F1115; color: #E2E8F0; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .glass-card { background: rgba(26, 31, 44, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.2); }
+    </style>
+</head>
+<body class="selection:bg-amber-500 selection:text-black">
+    <!-- Top Bar -->
+    <div class="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border-b border-amber-500/20 text-xs text-amber-200/90 py-2.5 px-6 text-center tracking-widest font-medium">
+        ✦ COLCHESTER'S LEADING ADVANCED SKIN & AESTHETICS CLINIC ✦ CONSULTATIONS AVAILABLE BY APPOINTMENT
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-[#0F1115]/80 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="#" class="flex flex-col">
+                <span class="font-cinzel text-xl md:text-2xl font-bold tracking-widest text-white">AURA AESTHETICS</span>
+                <span class="text-[10px] tracking-[0.3em] text-amber-400 font-semibold uppercase">Colchester Clinic</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+                <a href="#treatments" class="hover:text-amber-400 transition">Treatments</a>
+                <a href="#results" class="hover:text-amber-400 transition">Before & After</a>
+                <a href="#consultation" class="hover:text-amber-400 transition">Book Consultation</a>
+                <a href="#location" class="hover:text-amber-400 transition">Clinic Location</a>
+            </nav>
+            <a href="#consultation" class="bg-gradient-to-r from-amber-500 to-amber-600 text-black px-6 py-3 rounded-full text-sm font-bold hover:brightness-110 transition shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                Book Online
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section: Full-Bleed Dark Luxury Layout -->
+    <section class="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=2000&q=80" alt="Luxury skin clinic interior" class="w-full h-full object-cover opacity-25 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F1115] via-[#0F1115]/70 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+            <span class="inline-block border border-amber-500/40 bg-amber-500/10 text-amber-300 text-xs font-semibold uppercase tracking-[0.25em] px-4 py-2 rounded-full">
+                Medical Grade Rejuvenation & Skin Health
+            </span>
+            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider text-white leading-[1.15]">
+                Timeless Beauty, <br><span class="text-amber-400 italic">Scientifically Perfected.</span>
+            </h1>
+            <p class="text-lg text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">
+                Welcome to Colchester's premier destination for advanced anti-aging treatments, bespoke dermal fillers, chemical skin resurfacing, and clinical skin health.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#consultation" class="bg-amber-500 text-black px-8 py-4 rounded-full font-bold hover:bg-amber-400 transition tracking-wide text-sm shadow-lg">
+                    Schedule Your Skin Consultation
+                </a>
+                <a href="#treatments" class="border border-zinc-700 hover:border-amber-500/60 bg-zinc-900/60 text-white px-8 py-4 rounded-full font-medium transition tracking-wide text-sm">
+                    Explore Treatments
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Grid (Asymmetric Bento Card Architecture) -->
+    <section id="treatments" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <span class="text-amber-400 text-xs font-bold uppercase tracking-[0.2em]">Signature Protocols</span>
+            <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white tracking-wide">Advanced Clinical Treatments</h2>
+            <p class="text-zinc-400 text-sm">Performed by GMC-registered medical practitioners in our sterile Colchester suite.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Treatment 1 -->
+            <div class="glass-card p-8 rounded-3xl space-y-6 hover:border-amber-500/50 transition duration-300">
+                <div class="h-14 w-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-cinzel text-xl font-bold">01</div>
+                <h3 class="font-cinzel text-2xl font-semibold text-white">Dermal Fillers & Contouring</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Subtle facial sculpting, lip augmentation, and structural volumising using premium hyaluronic acid gels for natural harmony.</p>
+                <ul class="space-y-2 text-xs text-zinc-300 border-t border-zinc-800 pt-4">
+                    <li class="flex items-center gap-2">✦ Lip & Cheek Enhancement</li>
+                    <li class="flex items-center gap-2">✦ Jawline & Chin Definition</li>
+                    <li class="flex items-center gap-2">✦ Tear Trough Rejuvenation</li>
+                </ul>
+            </div>
+            <!-- Treatment 2 -->
+            <div class="glass-card p-8 rounded-3xl space-y-6 hover:border-amber-500/50 transition duration-300 bg-gradient-to-b from-[#1A1F2C] to-[#121620]">
+                <div class="h-14 w-14 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-cinzel text-xl font-bold">02</div>
+                <h3 class="font-cinzel text-2xl font-semibold text-white">Anti-Wrinkle Relaxing Injections</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Targeted neuromodulator treatments designed to soften dynamic lines, smooth expression wrinkles, and restore a refreshed appearance.</p>
+                <ul class="space-y-2 text-xs text-zinc-300 border-t border-zinc-800 pt-4">
+                    <li class="flex items-center gap-2">✦ Upper Face (Frown, Forehead, Crows Feet)</li>
+                    <li class="flex items-center gap-2">✦ Masseter Reduction / Jaw Clenching</li>
+                    <li class="flex items-center gap-2">✦ Nefertiti Neck Lift</li>
+                </ul>
+            </div>
+            <!-- Treatment 3 -->
+            <div class="glass-card p-8 rounded-3xl space-y-6 hover:border-amber-500/50 transition duration-300">
+                <div class="h-14 w-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-cinzel text-xl font-bold">03</div>
+                <h3 class="font-cinzel text-2xl font-semibold text-white">Clinical Skin Resurfacing</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Medical-grade chemical peels, micro-needling, and LED light therapy to treat hyperpigmentation, acne scarring, and dull skin texture.</p>
+                <ul class="space-y-2 text-xs text-zinc-300 border-t border-zinc-800 pt-4">
+                    <li class="flex items-center gap-2">✦ Medical Micro-Needling (Collagen Induction)</li>
+                    <li class="flex items-center gap-2">✦ Obagi Clinical Peels</li>
+                    <li class="flex items-center gap-2">✦ Advanced Pigmentation Corrective Facials</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Consultation Booking Form -->
+    <section id="consultation" class="py-24 px-6 max-w-4xl mx-auto">
+        <div class="glass-card p-8 md:p-14 rounded-3xl relative overflow-hidden shadow-2xl border border-amber-500/30">
+            <div class="absolute -top-24 -right-24 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl"></div>
+            <div class="relative z-10">
+                <div class="text-center max-w-xl mx-auto mb-12 space-y-3">
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-[0.2em]">Secure Your Visit</span>
+                    <h2 class="font-cinzel text-3xl font-bold text-white">Book Your Colchester Consultation</h2>
+                    <p class="text-zinc-400 text-sm">Every new client begins with an in-depth 3D skin analysis and tailored treatment blueprint.</p>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Consultation request successfully received! Our Colchester clinic coordinator will contact you via phone within 2 hours to confirm your appointment time.');" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">Full Name</label>
+                            <input type="text" required class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-400" placeholder="e.g. Victoria Sterling">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">Phone Number</label>
+                            <input type="tel" required class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-400" placeholder="e.g. 07700 900456">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">Primary Area of Interest</label>
+                        <select class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-400">
+                            <option>Comprehensive Anti-Aging Consultation (£50 refundable)</option>
+                            <option>Dermal Fillers & Lip Enhancement</option>
+                            <option>Anti-Wrinkle Relaxing Injections</option>
+                            <option>Advanced Skin Resurfacing & Acne Scars</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">Preferred Date & Time</label>
+                        <input type="text" required class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-400" placeholder="e.g. Thursday afternoon or Saturday morning">
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold py-4 rounded-xl transition shadow-xl text-base uppercase tracking-wider">
+                        Request Consultation Appointment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="location" class="bg-black text-zinc-400 py-16 px-6 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <span class="font-cinzel text-2xl font-bold text-white tracking-widest block mb-4">AURA AESTHETICS</span>
+                <p class="text-sm leading-relaxed text-zinc-400">
+                    Colchester's most trusted medical aesthetics clinic. Delivering exceptional clinical outcomes in a private, discreet environment.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider font-cinzel">Clinic Hours</h4>
+                <p class="text-sm mb-2">Tuesday – Friday: 9:00 AM – 7:00 PM</p>
+                <p class="text-sm">Saturday: 9:00 AM – 5:00 PM</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider font-cinzel">Colchester Location</h4>
+                <p class="text-sm mb-2">High Street, Colchester, Essex, CO1 1DN</p>
+                <p class="text-sm">Tel: 01206 554433</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-zinc-900 text-center text-xs text-zinc-600 space-y-2">
+            <p>© 2026 Aura Aesthetics Colchester. All rights reserved. Built by O.T.I.S. Web Agency (Essex).</p>
+            <p>Note: Imagery is temporary and fully customisable (local professional photography support available). Maintained under O.T.I.S. Web Agency £45/mo ongoing maintenance & update subscription tier.</p>
+        </div>
+    </footer>
+</body>
+</html>

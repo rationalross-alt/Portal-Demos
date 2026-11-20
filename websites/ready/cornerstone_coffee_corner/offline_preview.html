@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornerstone Coffee Corner | Artisan Coffee & Local Kitchen</title>
+    <meta name="description" content="Independent artisan coffee, fresh morning bakes, and hearty brunch in Essex. Experience Cornerstone Coffee Corner.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stoneDark: '#121210',
+                        stonePanel: '#1E1D1A',
+                        copper: '#D48331',
+                        cream: '#F4F1EA',
+                        mutedGray: '#8E8B82'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stoneDark text-cream font-sans antialiased selection:bg-copper selection:text-white">
+
+    <!-- Top Notice Banner -->
+    <aside class="bg-copper text-stoneDark text-xs font-semibold py-2 px-4 text-center tracking-wider uppercase">
+        Photography Notice: Images shown are temporary mood placeholders. Custom local photographer shoots or client-supplied assets integrated upon onboarding.
+    </aside>
+
+    <!-- Asymmetric Layout Container -->
+    <div class="min-h-screen lg:flex">
+        
+        <!-- Left Fixed Navigation / Brand Panel -->
+        <header class="lg:w-80 lg:fixed lg:h-screen bg-stonePanel border-r border-white/5 flex flex-col justify-between p-8 z-20">
+            <div>
+                <div class="flex items-center space-x-3 mb-10">
+                    <div class="w-10 h-10 bg-copper rounded-lg flex items-center justify-center font-display font-bold text-stoneDark text-xl">C</div>
+                    <div>
+                        <h1 class="font-display font-bold text-lg tracking-wide text-white">Cornerstone</h1>
+                        <p class="text-xs text-copper tracking-widest uppercase">Coffee Corner</p>
+                    </div>
+                </div>
+
+                <nav class="space-y-4 font-medium text-sm">
+                    <a href="#about" class="block text-mutedGray hover:text-copper transition-colors">01 // The Story</a>
+                    <a href="#menu" class="block text-mutedGray hover:text-copper transition-colors">02 // Artisan Menu</a>
+                    <a href="#atmosphere" class="block text-mutedGray hover:text-copper transition-colors">03 // The Space</a>
+                    <a href="#visit" class="block text-mutedGray hover:text-copper transition-colors">04 // Hours & Location</a>
+                </nav>
+            </div>
+
+            <div class="pt-8 border-t border-white/5">
+                <a href="#visit" class="block w-full py-3 bg-copper hover:bg-copper/90 text-stoneDark font-display font-bold text-center text-sm rounded transition-all shadow-lg shadow-copper/20">
+                    Plan Your Visit
+                </a>
+                <p class="text-[11px] text-mutedGray mt-4 text-center">Managed by O.T.I.S. Web Engine • £45/mo Maintenance Tier</p>
+            </div>
+        </header>
+
+        <!-- Right Main Content Area -->
+        <main class="lg:ml-80 flex-1">
+            
+            <!-- Hero Section -->
+            <section class="relative min-h-[85vh] flex items-center px-6 lg:px-20 py-20 bg-stoneDark overflow-hidden">
+                <div class="absolute inset-0 z-0 opacity-25">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1600" alt="Espresso machine and moody cafe ambiance" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-r from-stoneDark via-stoneDark/80 to-transparent z-1"></div>
+
+                <div class="relative z-10 max-w-3xl">
+                    <div class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-copper tracking-widest uppercase mb-6">
+                        Independent Coffee Bar & Kitchen
+                    </div>
+                    <h2 class="font-display text-4xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-none">
+                        Uncompromising <br><span class="text-copper">craft</span> in every cup.
+                    </h2>
+                    <p class="text-mutedGray text-lg max-w-xl mb-10 font-light leading-relaxed">
+                        Born from a passion for exceptional roasting, morning comfort, and community connection. Experience Cornerstone Coffee Corner.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#menu" class="px-8 py-4 bg-copper text-stoneDark font-display font-bold text-sm rounded hover:bg-copper/90 transition-all">
+                            Explore Menu
+                        </a>
+                        <a href="#about" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-display font-medium text-sm rounded transition-all">
+                            Our Philosophy
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Story Section (Asymmetric Grid) -->
+            <section id="about" class="px-6 lg:px-20 py-24 bg-stonePanel border-t border-white/5">
+                <div class="max-w-6xl grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-xs text-copper tracking-widest uppercase font-semibold">01 / The Story</span>
+                        <h3 class="font-display text-3xl lg:text-4xl font-bold text-white mt-3 mb-6">Rooted in quality, poured with precision.</h3>
+                        <p class="text-mutedGray leading-relaxed mb-6 font-light">
+                            Cornerstone isn't just a place to grab caffeine on the go—it's a sanctuary for those who appreciate the meticulous details. From ethically sourced single-origin beans to scratch-made morning pastries, every offering is curated with local character.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 pt-6 border-t border-white/10">
+                            <div>
+                                <span class="font-display text-2xl font-bold text-copper block">100%</span>
+                                <span class="text-xs text-mutedGray">Speciality Grade Beans</span>
+                            </div>
+                            <div>
+                                <span class="font-display text-2xl font-bold text-copper block">Local</span>
+                                <span class="text-xs text-mutedGray">Artisan Bakery Partners</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800" alt="Pour over coffee" class="rounded-lg h-64 w-full object-cover shadow-xl border border-white/10">
+                            <div class="bg-stoneDark p-6 rounded-lg border border-white/10">
+                                <p class="text-xs text-copper uppercase tracking-wider mb-1">Atmosphere</p>
+                                <p class="text-sm font-medium text-white">Industrial warmth meets neighborhood comfort.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="bg-copper/10 p-6 rounded-lg border border-copper/20">
+                                <p class="text-xs text-copper uppercase tracking-wider mb-1">Our Standard</p>
+                                <p class="text-sm font-medium text-cream">Zero compromise on roast profiles.</p>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" alt="Latte art preparation" class="rounded-lg h-64 w-full object-cover shadow-xl border border-white/10">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Section -->
+            <section id="menu" class="px-6 lg:px-20 py-24 bg-stoneDark">
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex justify-between items-end mb-16">
+                        <div>
+                            <span class="text-xs text-copper tracking-widest uppercase font-semibold">02 / Artisan Menu</span>
+                            <h3 class="font-display text-3xl lg:text-4xl font-bold text-white mt-3">Crafted Daily</h3>
+                        </div>
+                        <span class="text-xs text-mutedGray hidden sm:block">Dietary alternatives available upon request</span>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <!-- Category 1 -->
+                        <div class="bg-stonePanel p-8 rounded-xl border border-white/5 space-y-6">
+                            <h4 class="font-display text-xl font-bold text-copper border-b border-white/5 pb-4">Espresso & Brews</h4>
+                            
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h5 class="font-medium text-white">House Flat White</h5>
+                                    <p class="text-xs text-mutedGray">Double ristretto, velvety microfoam</p>
+                                </div>
+                                <span class="font-display font-semibold text-copper">£3.60</span>
+                            </div>
+
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h5 class="font-medium text-white">Single Origin Pour Over</h5>
+                                    <p class="text-xs text-mutedGray">Rotating seasonal beans, V60 extraction</p>
+                                </div>
+                                <span class="font-display font-semibold text-copper">£4.20</span>
+                            </div>
+
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h5 class="font-medium text-white">Long Black / Americano</h5>
+                                    <p class="text-xs text-mutedGray">Rich extraction over hot water</p>
+                                </div>
+                                <span class="font-display font-semibold text-copper">£3.30</span>
+                            </div>
+
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h5 class="font-medium text-white">Batch Brew Filter</h5>
+                                    <p class="text-xs text-mutedGray">Clean, crisp daily brew</p>
+                                </div>
+                                <span class="font-display font-semibold text-copper">£3.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Category 2 -->
+                        <div class="bg-stonePanel p-8 rounded-xl border border-white/5 space-y-6">
+                            <h4 class="font-display text-xl font-bold text-copper border-b border-white/5 pb-4">Brunch & Bakery</h4>
+                            
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h5 class="font-medium text-white">Sourdough Avocado Toast</h5>
+                                    <p class="text-xs text-mutedGray">Chilli flakes, poached eggs, dukkah</p>
+                                </div>
+                                <span class="font-display font-semibold text-copper">£9.50</span>
+                            </div>
+
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h5 class="font-medium text-white">Cornerstone Brioche Bun</h5>
+                                    <p class="text-xs text-mutedGray">Smoked bacon, fried egg, house relish</p>
+                                </div>
+                                <span class="font-display font-semibold text-copper">£8.50</span>
+                            </div>
+
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h5 class="font-medium text-white">Almond Croissant</h5>
+                                    <p class="text-xs text-mutedGray">Baked fresh every morning in Essex</p>
+                                </div>
+                                <span class="font-display font-semibold text-copper">£4.00</span>
+                            </div>
+
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h5 class="font-medium text-white">Seasonal Berry Granola Bowl</h5>
+                                    <p class="text-xs text-mutedGray">Greek yogurt, local honey, toasted seeds</p>
+                                </div>
+                                <span class="font-display font-semibold text-copper">£7.50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Atmosphere Showcase Section -->
+            <section id="atmosphere" class="px-6 lg:px-20 py-24 bg-stonePanel border-t border-white/5">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center max-w-xl mx-auto mb-16">
+                        <span class="text-xs text-copper tracking-widest uppercase font-semibold">03 / The Space</span>
+                        <h3 class="font-display text-3xl lg:text-4xl font-bold text-white mt-3">Designed for Focus & Conversation</h3>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="relative group overflow-hidden rounded-xl border border-white/10">
+                            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=800" alt="Cafe interior seating" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-stoneDark via-transparent to-transparent opacity-80"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h4 class="font-display font-bold text-lg text-white">Warm Interiors</h4>
+                                <p class="text-xs text-mutedGray mt-1">Raw timber, steel accents, and abundant natural light.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative group overflow-hidden rounded-xl border border-white/10">
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" alt="Coffee preparation bar" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-stoneDark via-transparent to-transparent opacity-80"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h4 class="font-display font-bold text-lg text-white">The Brew Bar</h4>
+                                <p class="text-xs text-mutedGray mt-1">Watch our baristas dial in espresso and pour-overs.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative group overflow-hidden rounded-xl border border-white/10">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800" alt="Community vibe" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-stoneDark via-transparent to-transparent opacity-80"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h4 class="font-display font-bold text-lg text-white">Community First</h4>
+                                <p class="text-xs text-mutedGray mt-1">Your neighborhood hub for work, catch-ups, and relaxation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visit & Hours Section -->
+            <section id="visit" class="px-6 lg:px-20 py-24 bg-stoneDark border-t border-white/5">
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
+                    <div>
+                        <span class="text-xs text-copper tracking-widest uppercase font-semibold">04 / Hours & Location</span>
+                        <h3 class="font-display text-3xl lg:text-4xl font-bold text-white mt-3 mb-6">Drop By Cornerstone</h3>
+                        <p class="text-mutedGray text-sm leading-relaxed mb-8 font-light">
+                            We operate on a walk-in basis for both our coffee bar and kitchen. Grab a table or take your brew to go.
+                        </p>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="flex justify-between py-3 border-b border-white/5">
+                                <span class="text-mutedGray">Monday – Friday</span>
+                                <span class="font-medium text-white">07:00 – 16:30</span>
+                            </div>
+                            <div class="flex justify-between py-3 border-b border-white/5">
+                                <span class="text-mutedGray">Saturday</span>
+                                <span class="font-medium text-white">08:00 – 17:00</span>
+                            </div>
+                            <div class="flex justify-between py-3 border-b border-white/5">
+                                <span class="text-mutedGray">Sunday</span>
+                                <span class="font-medium text-white">08:30 – 16:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-stonePanel p-8 rounded-xl border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-display text-xl font-bold text-white mb-4">Get in Touch</h4>
+                            <p class="text-xs text-mutedGray mb-6">Have a private group inquiry or feedback? Drop us a message.</p>
+                            
+                            <form onsubmit="event.preventDefault(); alert('Message sent successfully!');" class="space-y-4">
+                                <div>
+                                    <input type="text" placeholder="Your Name" required class="w-full bg-stoneDark border border-white/10 rounded px-4 py-3 text-sm text-white placeholder-mutedGray focus:outline-none focus:border-copper">
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Your Email Address" required class="w-full bg-stoneDark border border-white/10 rounded px-4 py-3 text-sm text-white placeholder-mutedGray focus:outline-none focus:border-copper">
+                                </div>
+                                <div>
+                                    <textarea rows="3" placeholder="Your Message" required class="w-full bg-stoneDark border border-white/10 rounded px-4 py-3 text-sm text-white placeholder-mutedGray focus:outline-none focus:border-copper"></textarea>
+                                </div>
+                                <button type="submit" class="w-full py-3 bg-copper hover:bg-copper/90 text-stoneDark font-display font-bold text-sm rounded transition-all">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="px-6 lg:px-20 py-12 bg-stonePanel border-t border-white/5 text-xs text-mutedGray flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; <span id="year"></span> Cornerstone Coffee Corner. All rights reserved.</p>
+                <p class="text-center">Photography Notice: Temporary placeholders. Custom professional photographer shoots or supplied assets available upon onboarding.</p>
+                <p class="text-copper">Maintained under £45/mo O.T.I.S. Agency Agreement</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

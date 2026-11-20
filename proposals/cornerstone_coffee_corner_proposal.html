@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal: Cornerstone Coffee Corner Website & Growth Package</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stoneDark: '#121210',
+                        stonePanel: '#1E1D1A',
+                        copper: '#D48331',
+                        cream: '#F4F1EA',
+                        mutedGray: '#8E8B82'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stoneDark text-cream font-sans antialiased selection:bg-copper selection:text-white p-6 lg:p-12">
+
+    <div class="max-w-4xl mx-auto bg-stonePanel border border-white/10 rounded-2xl p-8 lg:p-16 shadow-2xl">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-10 border-b border-white/10 gap-6">
+            <div>
+                <span class="px-3 py-1 bg-copper/10 border border-copper/30 text-copper text-xs font-semibold uppercase tracking-wider rounded">Executive Proposal</span>
+                <h1 class="font-display text-3xl lg:text-4xl font-bold text-white mt-3">Cornerstone Coffee Corner</h1>
+                <p class="text-mutedGray text-sm mt-1">Custom Web Architecture & Growth Package</p>
+            </div>
+            <div class="text-right">
+                <p class="text-xs text-mutedGray">Prepared By</p>
+                <p class="font-display font-bold text-white">O.T.I.S. Agency Operations</p>
+                <p class="text-xs text-copper mt-1">Essex, UK</p>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <section class="py-10 border-b border-white/10">
+            <h2 class="font-display text-xl font-bold text-white mb-4">1. Project Overview</h2>
+            <p class="text-mutedGray leading-relaxed font-light mb-4">
+                Cornerstone Coffee Corner stands as a pillar of artisan quality in the local community. However, standard template websites fail to capture the gritty elegance and meticulous craft of your cafe. We have engineered a <strong>completely bespoke, high-performance web architecture</strong> tailored specifically to your brand DNA—featuring asymmetric layouts, lightning-fast load speeds, and built-in local SEO.
+            </p>
+            <div class="bg-stoneDark p-6 rounded-xl border border-white/5 mt-6">
+                <p class="text-xs text-copper uppercase tracking-wider font-semibold mb-2">Notice Regarding Photography & Visuals</p>
+                <p class="text-xs text-mutedGray leading-relaxed">
+                    All imagery currently displayed in the preview is temporary mood placeholders. Upon onboarding, we can either coordinate with a professional local photographer for a dedicated venue shoot or seamlessly integrate your own supplied photography assets.
+                </p>
+            </div>
+        </section>
+
+        <!-- What's Included -->
+        <section class="py-10 border-b border-white/10">
+            <h2 class="font-display text-xl font-bold text-white mb-6">2. Deliverables & Technical Scope</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-stoneDark p-6 rounded-xl border border-white/5 space-y-3">
+                    <h3 class="font-display font-bold text-copper text-base">Bespoke Urban-Industrial Design</h3>
+                    <p class="text-xs text-mutedGray leading-relaxed">A completely unique DOM structure, sticky left-navigation framing, dark charcoal aesthetics, and copper typographic accents. Zero cookie-cutter templates.</p>
+                </div>
+                <div class="bg-stoneDark p-6 rounded-xl border border-white/5 space-y-3">
+                    <h3 class="font-display font-bold text-copper text-base">Built-in Local SEO Foundation</h3>
+                    <p class="text-xs text-mutedGray leading-relaxed">Semantic HTML5 architecture, optimized meta tags, lightning-fast static delivery, and LocalBusiness schema markup so local customers find you first.</p>
+                </div>
+                <div class="bg-stoneDark p-6 rounded-xl border border-white/5 space-y-3">
+                    <h3 class="font-display font-bold text-copper text-base">Interactive Menu & Contact Suite</h3>
+                    <p class="text-xs text-mutedGray leading-relaxed">Structured artisanal coffee and brunch menus, operational hours display, and fully functional visitor inquiry forms.</p>
+                </div>
+                <div class="bg-stoneDark p-6 rounded-xl border border-white/5 space-y-3">
+                    <h3 class="font-display font-bold text-copper text-base">Mobile-First Responsiveness</h3>
+                    <p class="text-xs text-mutedGray leading-relaxed">Flawless scaling and touch-optimized navigation across smartphones, tablets, and desktop displays.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Tiers -->
+        <section class="py-10">
+            <h2 class="font-display text-xl font-bold text-white mb-6">3. Investment Options</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Option A -->
+                <div class="bg-stoneDark p-8 rounded-xl border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-mutedGray uppercase tracking-widest font-semibold">Standard Build</span>
+                        <h3 class="font-display text-2xl font-bold text-white mt-2">One-Time Handover</h3>
+                        <div class="my-6">
+                            <span class="font-display text-4xl font-bold text-white">£750</span>
+                            <span class="text-xs text-mutedGray ml-1">one-time</span>
+                        </div>
+                        <p class="text-xs text-mutedGray leading-relaxed mb-6">Complete custom website design, local SEO setup, and source file delivery for your team to host and manage independently.</p>
+                    </div>
+                    <button onclick="alert('Selected Standard Build');" class="w-full py-3 bg-white/5 hover:bg-white/10 text-white font-display font-bold text-sm rounded border border-white/10 transition-all">
+                        Select One-Time Build
+                    </button>
+                </div>
+
+                <!-- Option B (Recommended) -->
+                <div class="bg-copper/10 p-8 rounded-xl border-2 border-copper flex flex-col justify-between relative">
+                    <div class="absolute -top-3 right-6 bg-copper text-stoneDark text-[10px] font-bold uppercase px-3 py-1 rounded">Recommended</div>
+                    <div>
+                        <span class="text-xs text-copper uppercase tracking-widest font-semibold">Fully Managed Growth</span>
+                        <h3 class="font-display text-2xl font-bold text-white mt-2">Build + Ongoing Care</h3>
+                        <div class="my-6">
+                            <span class="font-display text-4xl font-bold text-white">£750</span>
+                            <span class="text-xs text-copper ml-1">+ £45/mo</span>
+                        </div>
+                        <p class="text-xs text-mutedGray leading-relaxed mb-6">Includes custom build, priority hosting, unlimited text & menu updates, seasonal image refreshes, and ongoing SEO monitoring.</p>
+                    </div>
+                    <button onclick="alert('Selected Managed Growth Package (£45/mo)');" class="w-full py-3 bg-copper hover:bg-copper/90 text-stoneDark font-display font-bold text-sm rounded transition-all shadow-lg shadow-copper/25">
+                        Select Managed Growth (£45/mo)
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer Acceptance -->
+        <div class="pt-10 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-mutedGray gap-4">
+            <p>Cornerstone Coffee Corner Proposal &bull; O.T.I.S. Agency Operations</p>
+            <p class="text-copper">Ready for Agent Distribution & Client Presentation</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria Coffee Shop | Premium Artisan Roastery & Lounge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        galleria: {
+                            dark: '#0B0B0C',
+                            surface: '#151518',
+                            gold: '#D4AF37',
+                            goldLight: '#E8C559',
+                            muted: '#9CA3AF'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-galleria-dark text-white font-sans antialiased selection:bg-galleria-gold selection:text-galleria-dark">
+
+    <!-- Notice Banner -->
+    <div class="bg-galleria-surface border-b border-galleria-gold/20 text-xs py-2 px-4 text-center text-galleria-muted tracking-wider uppercase">
+        <span class="text-galleria-gold font-semibold">Photography Notice:</span> Images shown are temporary mood placeholders. Custom local photographer shoots or client-supplied assets integrated upon onboarding.
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-galleria-dark/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-cinzel text-2xl font-bold tracking-widest text-galleria-gold flex items-center gap-2">
+                GALLERIA <span class="text-xs tracking-normal font-sans text-white/60 uppercase font-light border-l border-white/20 pl-2">Coffee Shop</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-wider text-white/80">
+                <a href="#about" class="hover:text-galleria-gold transition">About</a>
+                <a href="#menu" class="hover:text-galleria-gold transition">Menu</a>
+                <a href="#experience" class="hover:text-galleria-gold transition">Experience</a>
+                <a href="#contact" class="hover:text-galleria-gold transition">Visit</a>
+            </nav>
+            <a href="#contact" class="bg-galleria-gold hover:bg-galleria-goldLight text-galleria-dark px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition shadow-lg shadow-galleria-gold/20">
+                Reserve Table
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section: Floating Luxury Cards -->
+    <section class="relative min-h-[90vh] flex items-center py-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 -z-10 opacity-30">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1920" alt="Galleria Cafe" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-galleria-dark via-galleria-dark/80 to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-8">
+                <span class="inline-block bg-galleria-gold/10 text-galleria-gold border border-galleria-gold/30 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase font-semibold">
+                    Artisan Roastery & Lounge
+                </span>
+                <h1 class="font-cinzel text-5xl sm:text-6xl lg:text-7xl font-bold tracking-wide leading-tight">
+                    Where Coffee Meets <span class="text-galleria-gold">Art & Elegance</span>
+                </h1>
+                <p class="text-lg text-galleria-muted max-w-xl font-light leading-relaxed">
+                    Step into an exquisite sanctuary of single-origin pours, artisanal pastries, and sophisticated atmosphere crafted for connoisseurs.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#menu" class="bg-galleria-gold hover:bg-galleria-goldLight text-galleria-dark px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition">
+                        Explore Menu
+                    </a>
+                    <a href="#contact" class="border border-white/20 hover:border-galleria-gold text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition">
+                        Find Us
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <div class="bg-galleria-surface p-4 rounded-2xl border border-white/10 shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600" alt="Espresso" class="rounded-lg h-48 w-full object-cover mb-4">
+                        <h3 class="font-cinzel text-galleria-gold font-semibold">Signature Pour</h3>
+                        <p class="text-xs text-galleria-muted">Single origin Ethiopian blend</p>
+                    </div>
+                </div>
+                <div class="space-y-4 pt-8">
+                    <div class="bg-galleria-surface p-4 rounded-2xl border border-white/10 shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=600" alt="Pastry" class="rounded-lg h-48 w-full object-cover mb-4">
+                        <h3 class="font-cinzel text-galleria-gold font-semibold">Artisan Bakery</h3>
+                        <p class="text-xs text-galleria-muted">Freshly baked daily</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Showcase -->
+    <section id="menu" class="py-24 bg-galleria-surface/50 border-t border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-galleria-gold text-xs uppercase tracking-widest font-semibold">Curated Offerings</span>
+                <h2 class="font-cinzel text-4xl font-bold">The Galleria Menu</h2>
+                <p class="text-galleria-muted text-sm">Hand-selected beans, expertly calibrated extractions, and gourmet accompaniments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-galleria-surface p-6 rounded-xl border border-white/10 space-y-4">
+                    <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                        <h3 class="font-cinzel text-lg font-semibold text-galleria-gold">Double Espresso</h3>
+                        <span class="text-white font-bold">£3.20</span>
+                    </div>
+                    <p class="text-xs text-galleria-muted">Rich crema, notes of dark chocolate and bergamot.</p>
+                </div>
+                <div class="bg-galleria-surface p-6 rounded-xl border border-white/10 space-y-4">
+                    <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                        <h3 class="font-cinzel text-lg font-semibold text-galleria-gold">Velvet Flat White</h3>
+                        <span class="text-white font-bold">£3.80</span>
+                    </div>
+                    <p class="text-xs text-galleria-muted">Micro-foamed organic milk over double ristretto.</p>
+                </div>
+                <div class="bg-galleria-surface p-6 rounded-xl border border-white/10 space-y-4">
+                    <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                        <h3 class="font-cinzel text-lg font-semibold text-galleria-gold">Single Origin V60 Pour Over</h3>
+                        <span class="text-white font-bold">£4.50</span>
+                    </div>
+                    <p class="text-xs text-galleria-muted">Hand-dripped seasonal micro-lot bean selection.</p>
+                </div>
+                <div class="bg-galleria-surface p-6 rounded-xl border border-white/10 space-y-4">
+                    <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                        <h3 class="font-cinzel text-lg font-semibold text-galleria-gold">Matcha Ceremonial Latte</h3>
+                        <span class="text-white font-bold">£4.20</span>
+                    </div>
+                    <p class="text-xs text-galleria-muted">Uji-sourced green tea stone-ground to perfection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Maintenance Notice -->
+    <footer id="contact" class="bg-galleria-dark py-16 border-t border-white/10 text-center">
+        <div class="max-w-4xl mx-auto px-6 space-y-6">
+            <a href="#" class="font-cinzel text-3xl font-bold tracking-widest text-galleria-gold inline-block">GALLERIA</a>
+            <p class="text-sm text-galleria-muted">Excellence in every cup. Open daily 7:30 AM – 5:30 PM.</p>
+            <div class="pt-6 border-t border-white/10 text-xs text-galleria-muted space-y-2">
+                <p><span class="text-galleria-gold font-semibold">Managed Growth & Maintenance Tier:</span> £750 one-time build + £45/mo ongoing updates, hosting, and priority support.</p>
+                <p>&copy; 2025 Galleria Coffee Shop. All rights reserved. Built by O.T.I.S. Agency Partners.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

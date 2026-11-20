@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stables Café at Hylands Park | Chelmsford</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C4A3E;
+            --accent: #D4A373;
+            --bg: #F4F1EA;
+            --dark: #1E2D24;
+            --light: #FFFFFF;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background: var(--bg); color: var(--dark); line-height: 1.6; }
+        header { background: var(--light); padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+        nav a { margin-left: 2rem; text-decoration: none; color: var(--dark); font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
+        .btn { background: var(--primary); color: var(--light); padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: transform 0.2s, background 0.2s; display: inline-block; }
+        .btn:hover { background: var(--dark); transform: translateY(-2px); }
+        
+        .hero { min-height: 85vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 1rem; }
+        .hero-content max-w-2xl { max-width: 800px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 1rem; font-weight: 600; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; font-weight: 300; }
+
+        section { padding: 6rem 10%; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .section-title p { color: #666; }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        .card { background: var(--light); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-body { padding: 2rem; }
+        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .price { color: var(--accent); font-weight: 600; font-size: 1.1rem; margin-top: 1rem; display: block; }
+
+        .info-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: var(--light); border-radius: 16px; padding: 4rem; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
+        .info-split img { width: 100%; height: 400px; object-fit: cover; border-radius: 12px; }
+
+        footer { background: var(--dark); color: white; text-align: center; padding: 3rem 5%; font-size: 0.9rem; }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .info-split { grid-template-columns: 1fr; padding: 2rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">The Stables Café</div>
+        <nav>
+            <a href="#about">Park Heritage</a>
+            <a href="#menu">Estate Menu</a>
+            <a href="#visit">Visit Hylands</a>
+        </nav>
+        <a href="#visit" class="btn">Find Us</a>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Refreshment in the Heart of Hylands Park</h1>
+            <p>Artisan coffee, hearty breakfasts, and homemade lunches nestled within Chelmsford's historic stable yards.</p>
+            <a href="#menu" class="btn">Explore Menu</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="info-split">
+            <div>
+                <span style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Historic Setting</span>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); margin: 0.5rem 0 1rem 0;">A Restful Haven After Your Estate Walk</h2>
+                <p style="color: #555; margin-bottom: 1.5rem;">Located in the beautifully converted 18th-century stable block at Hylands Park, we provide the ultimate spot to unwind after exploring 574 acres of historic parkland and ancient woods.</p>
+                <p style="color: #555;">Whether you've just walked the trails with your dog or cycled through the estate, our courtyard welcomes everyone with warm hospitality, muddy boots friendliness, and exceptional coffee.</p>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80" alt="Hylands Park Stables Café">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="section-title">
+            <h2>Estate Favourites & Kitchen Specials</h2>
+            <p>Crafted with locally sourced Essex produce</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80" alt="Breakfast">
+                <div class="card-body">
+                    <h3>The Stables Full English</h3>
+                    <p>Free-range local sausages, smoked bacon, field mushrooms, roasted tomatoes, eggs to order, and sourdough toast.</p>
+                    <span class="price">£12.50</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Coffee and Cake">
+                <div class="card-body">
+                    <h3>Artisan Roast & Victoria Sponge</h3>
+                    <p>Double-shot flat white paired with a generous slice of freshly baked classic Victoria sponge cake.</p>
+                    <span class="price">£7.20</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=800&q=80" alt="Lunch">
+                <div class="card-body">
+                    <h3>Heritage Sourdough Toasties</h3>
+                    <p>Mature cheddar, Wiltshire ham, and homemade red onion marmalade pressed on artisan sourdough.</p>
+                    <span class="price">£8.90</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visit" style="background: white;">
+        <div class="info-split">
+            <div>
+                <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1000&q=80" alt="Parkland">
+            </div>
+            <div>
+                <span style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">Plan Your Visit</span>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); margin: 0.5rem 0 1rem 0;">Opening Hours & Location</h2>
+                <p style="color: #555; margin-bottom: 1rem;"><strong>Address:</strong> Hylands House & Estate, London Road, Writtle, Chelmsford CM2 8WQ</p>
+                <p style="color: #555; margin-bottom: 1rem;"><strong>Hours:</strong> Monday – Sunday: 9:00 AM – 4:30 PM</p>
+                <p style="color: #555; margin-bottom: 2rem;">Dog-friendly in our courtyard and designated indoor areas. Free estate parking available right outside the stable gates.</p>
+                <a href="tel:01245555123" class="btn">Call the Café</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 The Stables Café at Hylands Park. All rights reserved. Designed for local artisan excellence.</p>
+    </footer>
+
+</body>
+</html>

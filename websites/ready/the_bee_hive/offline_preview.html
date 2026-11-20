@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bean Hive | Artisan Coffee & Independent Emporium in Essex</title>
+    <meta name="description" content="Welcome to The Bean Hive. Essex's premier destination for speciality artisan coffee, home-baked cakes, and independent lifestyle makers. Experience true community warmth.">
+    
+    <!-- JSON-LD Local Business Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": "The Bean Hive",
+      "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Essex",
+        "addressCountry": "GB"
+      },
+      "servesCuisine": "Artisan Coffee, Cakes, Light Lunches",
+      "priceRange": "££",
+      "telephone": "+44 1245 000000"
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bean: {
+                            50: '#FDFBF7',
+                            100: '#F4ECE1',
+                            600: '#8C6D53',
+                            800: '#523B2A',
+                            900: '#332318'
+                        },
+                        gold: {
+                            accent: '#D4AF37'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-bean-50 text-bean-900 font-sans antialiased selection:bg-bean-600 selection:text-white">
+
+    <!-- Top Announcement & Onboarding Notice Banner -->
+    <div class="bg-bean-900 text-bean-100 text-xs sm:text-sm py-2 px-4 text-center border-b border-bean-800 flex flex-wrap items-center justify-center gap-2">
+        <span class="inline-flex items-center gap-1.5 font-medium text-amber-300">
+            <i class="fa-solid fa-camera-retro"></i> Preview Notice:
+        </span>
+        <span>Images shown are temporary mood placeholders. Upon onboarding, we can arrange a professional photographer for custom shoots or swap in your own supplied assets.</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-bean-50/90 backdrop-blur-md border-b border-bean-100 transition-all">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-bean-900 flex items-center gap-2">
+                <i class="fa-solid fa-mug-hot text-bean-600"></i> The Bean Hive
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-bean-800">
+                <a href="#about" class="hover:text-bean-600 transition-colors">Our Story</a>
+                <a href="#menu" class="hover:text-bean-600 transition-colors">Artisan Menu</a>
+                <a href="#makers" class="hover:text-bean-600 transition-colors">Local Makers</a>
+                <a href="#visit" class="hover:text-bean-600 transition-colors">Find Us</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#visit" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-bean-800 text-bean-50 text-sm font-semibold hover:bg-bean-900 transition-all shadow-sm">
+                    Book a Table
+                </a>
+                <button class="md:hidden text-bean-900 text-xl p-2 focus:outline-none" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-20 px-6">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=2000&q=85" alt="Cozy artisan coffee shop interior with warm lighting" class="w-full h-full object-cover object-center filter brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-r from-bean-900/80 via-bean-900/50 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 text-white space-y-6">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-semibold tracking-wide uppercase">
+                    <i class="fa-solid fa-award"></i> Essex's Independent Hub
+                </span>
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
+                    Where Great Coffee <br><span class="italic font-normal text-amber-200">Meets Community.</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-bean-100 font-light max-w-xl leading-relaxed">
+                    Step inside The Bean Hive. Hand-roasted speciality coffee, freshly baked artisan cakes, and a curated emporium showcasing Essex's finest independent makers.
+                </p>
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <a href="#menu" class="px-8 py-4 rounded-full bg-amber-500 text-bean-900 font-bold hover:bg-amber-400 transition-all shadow-lg flex items-center gap-2">
+                        Explore Our Menu <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="#visit" class="px-8 py-4 rounded-full bg-white/10 backdrop-blur-md text-white font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                        Plan Your Visit
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-5 hidden lg:block">
+                <div class="bg-bean-900/60 backdrop-blur-md p-8 rounded-2xl border border-white/10 text-white space-y-6 shadow-2xl">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                        <span class="text-xs uppercase tracking-widest text-amber-300 font-semibold">Today's Hive Hours</span>
+                        <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Open Now</span>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between py-1 border-b border-white/5">
+                            <span class="text-bean-100">Monday – Friday</span>
+                            <span class="font-semibold">8:00 AM – 4:30 PM</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-white/5">
+                            <span class="text-bean-100">Saturday</span>
+                            <span class="font-semibold">8:30 AM – 5:00 PM</span>
+                        </div>
+                        <div class="flex justify-between py-1">
+                            <span class="text-bean-100">Sunday</span>
+                            <span class="font-semibold">9:00 AM – 4:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <p class="text-xs text-bean-200 italic">"The warmest welcome and finest flat white in the county."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction / Our Story -->
+    <section id="about" class="py-24 px-6 bg-bean-100/50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <span class="text-bean-600 font-semibold text-xs tracking-widest uppercase block">Rooted in Craft</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-bean-900 leading-tight">
+                    More than a coffee shop. A gathering place for the curious.
+                </h2>
+                <p class="text-bean-800 leading-relaxed font-light">
+                    Founded with a passion for exceptional brewing and local artistry, The Bean Hive was built as a sanctuary from the everyday rush. Every bean we grind is ethically sourced and expertly roasted to bring out rich, complex flavour notes.
+                </p>
+                <p class="text-bean-800 leading-relaxed font-light">
+                    Alongside our coffee bar, explore our artisan boutique featuring hand-crafted goods, pottery, and gifts from talented makers right here in Essex.
+                </p>
+                <div class="grid grid-cols-3 gap-6 pt-6 border-t border-bean-200">
+                    <div>
+                        <span class="block font-serif text-3xl font-bold text-bean-900">100%</span>
+                        <span class="text-xs text-bean-600 uppercase tracking-wider font-semibold">Speciality Grade</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-3xl font-bold text-bean-900">25+</span>
+                        <span class="text-xs text-bean-600 uppercase tracking-wider font-semibold">Local Makers</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-3xl font-bold text-bean-900">4.9</span>
+                        <span class="text-xs text-bean-600 uppercase tracking-wider font-semibold">Google Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Pour over artisan coffee brewing" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Cozy cafe corner with books and pastries" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                </div>
+                <div class="space-y-4 pt-8">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Fresh artisan bakes and cakes" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                    <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80" alt="Barista crafting latte art" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artisan Menu Preview -->
+    <section id="menu" class="py-24 px-6 bg-bean-50">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <span class="text-bean-600 font-semibold text-xs tracking-widest uppercase block">Crafted Daily</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-bean-900">From Crop to Cup & Oven</h2>
+                <p class="text-bean-800 font-light">Explore a taste of what's waiting for you on the counter today.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Menu Card 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-bean-100 hover:shadow-md transition-all group">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" alt="Speciality Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-bean-600">Speciality Brews</span>
+                    <h3 class="font-serif text-2xl font-bold text-bean-900 mt-1 mb-3">House & Guest Roasts</h3>
+                    <p class="text-bean-800 text-sm font-light leading-relaxed mb-6">
+                        Flat whites, silky cappuccinos, slow drip filter, and seasonal lattes brewed with precision using local dairy and oat alternatives.
+                    </p>
+                    <span class="font-serif font-bold text-bean-900">From £3.20</span>
+                </div>
+
+                <!-- Menu Card 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-bean-100 hover:shadow-md transition-all group">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Artisan Cakes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-bean-600">Bakery & Sweet</span>
+                    <h3 class="font-serif text-2xl font-bold text-bean-900 mt-1 mb-3">Daily Home-Baked Cakes</h3>
+                    <p class="text-bean-800 text-sm font-light leading-relaxed mb-6">
+                        Gluten-free brownies, decadent Victoria sponges, lemon drizzle, and warm cinnamon buns baked fresh every morning.
+                    </p>
+                    <span class="font-serif font-bold text-bean-900">From £3.80</span>
+                </div>
+
+                <!-- Menu Card 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-bean-100 hover:shadow-md transition-all group">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Artisan Lunches" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-bean-600">Hearty Lunches</span>
+                    <h3 class="font-serif text-2xl font-bold text-bean-900 mt-1 mb-3">Sourdough Toasties & Salads</h3>
+                    <p class="text-bean-800 text-sm font-light leading-relaxed mb-6">
+                        Artisan sourdough toasties loaded with mature cheddar, spiced chutneys, and vibrant seasonal harvest salads.
+                    </p>
+                    <span class="font-serif font-bold text-bean-900">From £7.50</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Independent Makers Section -->
+    <section id="makers" class="py-24 px-6 bg-bean-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <span class="text-amber-400 font-semibold text-xs tracking-widest uppercase block">Support Local</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold">The Independent Emporium</h2>
+                <p class="text-bean-100 font-light leading-relaxed">
+                    When you step inside The Bean Hive, you aren't just visiting a cafe—you are supporting a vibrant collective of talented Essex creators, ceramicists, candlemakers, and artists.
+                </p>
+                <ul class="space-y-4 text-bean-200 font-light text-sm">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-400"></i> Hand-poured soy wax candles & botanical fragrances</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-400"></i> Hand-thrown stoneware ceramics and pottery</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-400"></i> Original prints & stationery from Essex illustrators</li>
+                </ul>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Handcrafted pottery and gifts" class="rounded-2xl shadow-xl w-full h-72 object-cover">
+                <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80" alt="Artisan lifestyle goods" class="rounded-2xl shadow-xl w-full h-72 object-cover mt-8">
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit & Contact Section -->
+    <section id="visit" class="py-24 px-6 bg-bean-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="space-y-8">
+                <div>
+                    <span class="text-bean-600 font-semibold text-xs tracking-widest uppercase block">Come Say Hello</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-bean-900 mt-2">Plan Your Visit</h2>
+                </div>
+                <div class="space-y-6 text-bean-800">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-bean-100 flex items-center justify-center text-bean-800 shrink-0 text-lg">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-lg text-bean-900">Location</h3>
+                            <p class="text-sm font-light mt-1">Essex, United Kingdom<br>Easy access & welcoming atmosphere</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-bean-100 flex items-center justify-center text-bean-800 shrink-0 text-lg">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-lg text-bean-900">Opening Hours</h3>
+                            <p class="text-sm font-light mt-1">Mon–Fri: 8.00am – 4.30pm<br>Sat: 8.30am – 5.00pm | Sun: 9.00am – 4.00pm</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-bean-100 flex items-center justify-center text-bean-800 shrink-0 text-lg">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-lg text-bean-900">Get in Touch</h3>
+                            <p class="text-sm font-light mt-1">hello@thebeanhive.co.uk<br>Table reservations & enquiries welcome</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact / Reservation Form -->
+            <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-bean-100 space-y-6">
+                <h3 class="font-serif text-2xl font-bold text-bean-900">Send us a message or table query</h3>
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! This is a preview demonstration form.');">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-bean-800 mb-2">Your Name</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-bean-200 focus:outline-none focus:border-bean-800 text-sm bg-bean-50/50" placeholder="Jane Doe">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-bean-800 mb-2">Email Address</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-xl border border-bean-200 focus:outline-none focus:border-bean-800 text-sm bg-bean-50/50" placeholder="jane@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-bean-800 mb-2">Message or Booking Details</label>
+                        <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-bean-200 focus:outline-none focus:border-bean-800 text-sm bg-bean-50/50" placeholder="Table for 4 this Saturday at 11am..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-bean-900 text-white font-bold hover:bg-bean-800 transition-all shadow-md">
+                        Send Enquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bean-900 text-bean-200 py-16 px-6 border-t border-bean-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-bean-800">
+            <div class="md:col-span-2 space-y-4">
+                <a href="#" class="font-serif text-2xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-mug-hot text-amber-400"></i> The Bean Hive
+                </a>
+                <p class="text-sm font-light text-bean-300 max-w-sm">
+                    Essex's favourite speciality coffee destination and independent makers' emporium. Crafted with warmth and passion.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-serif font-bold text-white mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm font-light">
+                    <li><a href="#about" class="hover:text-amber-400 transition-colors">Our Story</a></li>
+                    <li><a href="#menu" class="hover:text-amber-400 transition-colors">Artisan Menu</a></li>
+                    <li><a href="#makers" class="hover:text-amber-400 transition-colors">Local Makers</a></li>
+                    <li><a href="#visit" class="hover:text-amber-400 transition-colors">Find Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-serif font-bold text-white mb-4">Connect</h4>
+                <div class="flex gap-4 text-lg">
+                    <a href="#" class="w-10 h-10 rounded-full bg-bean-800 flex items-center justify-center hover:bg-amber-500 hover:text-bean-900 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-bean-800 flex items-center justify-center hover:bg-amber-500 hover:text-bean-900 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-bean-800 flex items-center justify-center hover:bg-amber-500 hover:text-bean-900 transition-all"><i class="fa-brands fa-tripadvisor"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-light text-bean-400 gap-4">
+            <p>&copy; <span id="current-year"></span> The Bean Hive. All rights reserved.</p>
+            <p class="text-center sm:text-right">
+                <span class="text-amber-300 font-medium">Preview Notice:</span> All images are temporary placeholders. Custom photography or client assets can be arranged upon onboarding.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
