@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebCraft Staff &amp; QA Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
+
+  <!-- PASSCODE LOGIN SCREEN -->
+  <div id="login-screen" class="min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl">
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+        <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold">WebCraft // Portal Access</span>
+      </div>
+      <h1 class="text-2xl font-bold mb-2">Enter Access Passcode</h1>
+      <p class="text-sm text-slate-400 mb-6">Staff passcodes unlock approved client leads. Admin passcode unlocks the private QA review queue.</p>
+      <form onsubmit="handleLogin(event)" class="space-y-4">
+        <input id="passcode-input" type="password" inputmode="numeric" maxlength="12" required placeholder="Enter passcode..."
+          class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-700 text-center text-lg tracking-widest font-mono focus:outline-none focus:border-indigo-500" />
+        <p id="login-err" class="text-xs text-rose-400 hidden">Invalid passcode. Check with Ross for your staff code.</p>
+        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3.5 rounded-xl font-semibold text-sm transition">Unlock Portal</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MAIN PORTAL (HIDDEN UNTIL AUTHENTICATED) -->
+  <div id="app-screen" class="hidden">
+    <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-20">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h1 class="text-xl font-bold tracking-tight">WebCraft Leads Portal</h1>
+            <span id="role-badge" class="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"></span>
+          </div>
+          <p id="role-sub" class="text-xs text-slate-400 mt-0.5"></p>
+        </div>
+        <div class="flex items-center gap-3 text-xs">
+          <span id="stat-rdy" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-emerald-300 font-semibold">0 Available Leads</span>
+          <span id="stat-rev" class="hidden px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-700/50 text-amber-300 font-semibold">0 Private QA Review</span>
+          <button onclick="logout()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300">Lock</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+      <!-- ADMIN-ONLY VIEW TABS -->
+      <div id="admin-tabs" class="hidden flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+        <div class="flex gap-2">
+          <button onclick="setTab('review')" id="tab-review" class="px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-slate-950">Private QA Review (Hidden from Staff)</button>
+          <button onclick="setTab('ready')" id="tab-ready" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800">Approved Staff Leads</button>
+        </div>
+        <p class="text-xs text-slate-400">Tip: Tell NOX <span class="text-slate-200 font-mono">"approve [business name]"</span> or <span class="text-slate-200 font-mono">"approve all review sites"</span> to publish to staff.</p>
+      </div>
+
+      <div id="grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </main>
+  </div>
+
+  <!-- INLINE DEMO PREVIEW MODAL -->
+  <div id="modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-5xl h-[85vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-3 border-b border-slate-800 flex justify-between items-center">
+        <span id="modal-title" class="font-bold text-sm">Client Preview</span>
+        <div class="flex gap-2">
+          <a id="modal-ext" href="#" target="_blank" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700">Open Full Tab</a>
+          <button onclick="closeModal()" class="text-xs px-3 py-1.5 rounded-lg bg-rose-600/20 text-rose-300 hover:bg-rose-600/30">Close</button>
+        </div>
+      </div>
+      <iframe id="modal-frame" class="w-full flex-1 bg-white"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const ADMIN_CODE = "2408";
+    const STAFF_CODES = {"1111": "Staff Rep 1", "2222": "Staff Rep 2", "3333": "Staff Rep 3"};
+    let sessionRole = null; // 'admin' | 'staff'
+    let sessionUser = '';
+    let activeTab = 'ready';
+    let allProjects = [];
+    let localApproved = JSON.parse(localStorage.getItem('wc_local_approved') || '[]');
+    let localClaims = JSON.parse(localStorage.getItem('wc_local_claims') || '{}');
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const code = document.getElementById('passcode-input').value.trim();
+      const err = document.getElementById('login-err');
+      if (code === ADMIN_CODE) {
+        sessionRole = 'admin';
+        sessionUser = 'Ross (Admin)';
+        activeTab = 'review';
+      } else if (STAFF_CODES[code]) {
+        sessionRole = 'staff';
+        sessionUser = STAFF_CODES[code];
+        activeTab = 'ready';
+      } else {
+        err.classList.remove('hidden');
+        return;
+      }
+      err.classList.add('hidden');
+      sessionStorage.setItem('wc_role', sessionRole);
+      sessionStorage.setItem('wc_user', sessionUser);
+      bootPortal();
+    }
+
+    function logout() {
+      sessionStorage.clear();
+      location.reload();
+    }
+
+    function setTab(t) {
+      activeTab = t;
+      document.getElementById('tab-review').className = t === 'review'
+        ? 'px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-slate-950'
+        : 'px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800';
+      document.getElementById('tab-ready').className = t === 'ready'
+        ? 'px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-500 text-slate-950'
+        : 'px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800';
+      render();
+    }
+
+    function approveLead(id, name) {
+      if (!localApproved.includes(id)) {
+        localApproved.push(id);
+        localStorage.setItem('wc_local_approved', JSON.stringify(localApproved));
+      }
+      render();
+      alert(`Approved "${name}" in browser session. Tell NOX "approve ${name}" to sync the GitHub folder move for all staff devices.`);
+    }
+
+    function toggleClaim(id) {
+      if (localClaims[id]) {
+        delete localClaims[id];
+      } else {
+        localClaims[id] = sessionUser;
+      }
+      localStorage.setItem('wc_local_claims', JSON.stringify(localClaims));
+      render();
+    }
+
+    function openModal(title, url) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-ext').href = url;
+      document.getElementById('modal-frame').src = url;
+      const m = document.getElementById('modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeModal() {
+      const m = document.getElementById('modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+      document.getElementById('modal-frame').src = '';
+    }
+
+    function render() {
+      // Normalize effective status (server status OR browser-approved override)
+      const normalized = allProjects.map(p => ({
+        ...p,
+        effectiveStatus: (p.status === 'ready' || localApproved.includes(p.id)) ? 'ready' : 'review'
+      }));
+
+      // CRITICAL: Staff NEVER receive or render 'review' items
+      const visiblePool = sessionRole === 'admin'
+        ? normalized.filter(p => p.effectiveStatus === activeTab)
+        : normalized.filter(p => p.effectiveStatus === 'ready');
+
+      const rdyCount = normalized.filter(p => p.effectiveStatus === 'ready').length;
+      const revCount = normalized.filter(p => p.effectiveStatus === 'review').length;
+
+      document.getElementById('stat-rdy').textContent = `${rdyCount} Approved Staff Leads`;
+      if (sessionRole === 'admin') {
+        const revEl = document.getElementById('stat-rev');
+        revEl.classList.remove('hidden');
+        revEl.textContent = `${revCount} Awaiting Your QA`;
+      }
+
+      document.getElementById('grid').innerHTML = visiblePool.length ? visiblePool.map(p => {
+        const claimedBy = localClaims[p.id] || p.owner;
+        const isReview = p.effectiveStatus === 'review';
+        return `
+        <div class="bg-slate-900 border ${isReview ? 'border-amber-500/30' : 'border-slate-800'} rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-xs uppercase tracking-wider text-indigo-400 font-semibold">${p.category}</span>
+              <span class="text-xs px-2.5 py-0.5 rounded-full font-medium ${isReview ? 'bg-amber-500/10 text-amber-300 border border-amber-500/30' : 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/30'}">
+                ${isReview ? 'Private QA Review' : (claimedBy ? 'Chasing: ' + claimedBy : 'Available Lead')}
+              </span>
+            </div>
+            <h2 class="text-lg font-bold mb-1">${p.name}</h2>
+            <p class="text-xs text-slate-300 font-medium mb-2">${p.location} &bull; <a href="tel:${p.phone}" class="underline">${p.phone}</a></p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">${p.pitch || ''}</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex flex-wrap justify-between items-center gap-2">
+            <span class="text-xs font-semibold text-slate-300">&pound;${p.setupFee} + &pound;${p.monthlyFee}/mo</span>
+            <div class="flex gap-2">
+              <button onclick="openModal('${p.name.replace(/'/g, "'")}', '${p.demoUrl}')" class="bg-slate-800 hover:bg-slate-700 text-white text-xs px-3 py-2 rounded-xl font-semibold">Preview</button>
+              ${sessionRole === 'admin' && isReview
+                ? `<button onclick="approveLead('${p.id}', '${p.name.replace(/'/g, "'")}')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs px-3.5 py-2 rounded-xl font-bold">Approve &rarr; Staff</button>`
+                : `<button onclick="toggleClaim('${p.id}')" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs px-3.5 py-2 rounded-xl font-semibold">${claimedBy ? 'Release' : 'Claim Lead'}</button>`
+              }
+            </div>
+          </div>
+        </div>`;
+      }).join('') : `<div class="col-span-full text-center py-16 border border-dashed border-slate-800 rounded-2xl text-slate-500 text-sm">
+        ${sessionRole === 'admin' && activeTab === 'review'
+          ? 'No sites waiting in your private review folder. Ask NOX to scrape new Essex leads.'
+          : 'No approved leads available to chase yet.'}
+      </div>`;
+    }
+
+    function bootPortal() {
+      document.getElementById('login-screen').classList.add('hidden');
+      document.getElementById('app-screen').classList.remove('hidden');
+      document.getElementById('role-badge').textContent = sessionUser;
+      document.getElementById('role-sub').textContent = sessionRole === 'admin'
+        ? 'Admin Mode: Reviewing private websites/review/ queue before releasing to staff.'
+        : 'Staff Mode: Showing approved client leads ready to pitch (£450 setup + £45/mo).';
+      if (sessionRole === 'admin') {
+        document.getElementById('admin-tabs').classList.remove('hidden');
+      }
+      fetch('projects.json?t=' + Date.now()).then(r => r.json()).then(d => {
+        allProjects = d.projects || [];
+        render();
+      });
+    }
+
+    const savedRole = sessionStorage.getItem('wc_role');
+    if (savedRole) {
+      sessionRole = savedRole;
+      sessionUser = sessionStorage.getItem('wc_user') || '';
+      activeTab = sessionRole === 'admin' ? 'review' : 'ready';
+      bootPortal();
+    }
+  </script>
+</body>
+</html>
