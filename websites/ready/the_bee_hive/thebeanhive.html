@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bean Hive | Artisan Coffee & Bakery | Chelmsford</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amber: { 50: '#fdf8f0', 100: '#fbeedb', 600: '#d97706', 750: '#92400e', 900: '#78350f' },
+                        stone: { 50: '#fafaf9', 100: '#f5f5f4', 800: '#292524', 900: '#1c1917' }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-amber-50/40 text-stone-800 font-sans antialiased selection:bg-amber-600 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-stone-900 text-amber-100 text-xs py-2 px-4 text-center font-medium tracking-wide">
+        📍 44 Baddow Road, Chelmsford, CM2 0DG &nbsp;|&nbsp; ☕ Open Today: 7:30 AM – 4:30 PM &nbsp;|&nbsp; 🥐 Fresh Sourdough & Pastries Daily
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center text-white shadow-md shadow-amber-600/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-mug-hot text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-2xl font-bold tracking-tight text-stone-900 block leading-tight">The Bean Hive</span>
+                    <span class="text-[10px] uppercase tracking-widest text-amber-750 font-semibold block">Artisan Coffee & Bakery</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
+                <a href="#about" class="hover:text-amber-600 transition-colors">Our Story</a>
+                <a href="#menu" class="hover:text-amber-600 transition-colors">Menu & Bakery</a>
+                <a href="#atmosphere" class="hover:text-amber-600 transition-colors">Atmosphere</a>
+                <a href="#visit" class="hover:text-amber-600 transition-colors">Find Us</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#visit" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-stone-900 text-white text-sm font-medium hover:bg-amber-600 transition-all shadow-sm">
+                    Order / Visit
+                </a>
+                <button onclick="mobileMenuToggle()" class="md:hidden text-stone-800 text-xl p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-6 py-4 space-y-3">
+            <a href="#about" class="block text-stone-700 font-medium py-1">Our Story</a>
+            <a href="#menu" class="block text-stone-700 font-medium py-1">Menu & Bakery</a>
+            <a href="#atmosphere" class="block text-stone-700 font-medium py-1">Atmosphere</a>
+            <a href="#visit" class="block text-stone-700 font-medium py-1">Find Us</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=2000" alt="Coffee Shop Interior" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent z-0"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-6 py-20 space-y-6">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-600/30 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-wider uppercase backdrop-blur-sm">
+                <i class="fa-solid fa-award"></i> Chelmsford’s Favourite Independent Coffee House
+            </span>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]">
+                Rooted in Quality. <br><span class="italic font-normal text-amber-200">Brewed with Passion.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-stone-300 max-w-2xl mx-auto font-light leading-relaxed">
+                Step into The Bean Hive on Baddow Road. Exceptional single-origin coffee, artisan pastries baked fresh every morning, and a warm sanctuary in the heart of Chelmsford.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-medium transition-all shadow-lg shadow-amber-600/30 text-center">
+                    Explore Our Menu
+                </a>
+                <a href="#visit" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium backdrop-blur-md transition-all text-center">
+                    Get Directions & Hours
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Banner -->
+    <section class="bg-amber-100/60 border-y border-amber-200/60 py-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="space-y-2">
+                <div class="w-12 h-12 mx-auto rounded-full bg-amber-600/10 text-amber-700 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h3 class="font-serif text-lg font-bold text-stone-900">Ethically Sourced Beans</h3>
+                <p class="text-sm text-stone-600">Roasted in small batches for notes of chocolate, caramel, and smooth hazelnut.</p>
+            </div>
+            <div class="space-y-2">
+                <div class="w-12 h-12 mx-auto rounded-full bg-amber-600/10 text-amber-700 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-bread-slice"></i>
+                </div>
+                <h3 class="font-serif text-lg font-bold text-stone-900">Artisan Bakery</h3>
+                <p class="text-sm text-stone-600">Sourdough toasties, flaky butter croissants, and decadent cakes baked daily locally.</p>
+            </div>
+            <div class="space-y-2">
+                <div class="w-12 h-12 mx-auto rounded-full bg-amber-600/10 text-amber-700 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 class="font-serif text-lg font-bold text-stone-900">Community Hub</h3>
+                <p class="text-sm text-stone-600">A welcoming sanctuary for remote workers, friends catching up, and true coffee lovers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview Section -->
+    <section id="menu" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <span class="text-amber-750 font-semibold text-xs tracking-widest uppercase">Handcrafted Daily</span>
+            <h2 class="font-serif text-4xl font-bold text-stone-900">Our Menu & Specialties</h2>
+            <p class="text-stone-600">From your morning flat white to our signature loaded sourdough toasties and sweet treats.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Espresso & Drinks -->
+            <div class="bg-white p-8 md:p-10 rounded-3xl border border-stone-200 shadow-sm space-y-8">
+                <div class="flex items-center gap-4 border-b border-stone-100 pb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-600 text-white flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-mug-saucer"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-900">Espresso Bar & Teas</h3>
+                        <p class="text-xs text-stone-500">Oat, almond, and soy milks available at no extra charge.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-4">
+                        <div>
+                            <h4 class="font-bold text-stone-900">Flat White / Latte / Cappuccino</h4>
+                            <p class="text-xs text-stone-500">Double shot with silky textured milk</p>
+                        </div>
+                        <span class="font-serif font-bold text-amber-700">£3.40</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-4">
+                        <div>
+                            <h4 class="font-bold text-stone-900">Batch Brew Filter Coffee</h4>
+                            <p class="text-xs text-stone-500">Single origin rotating daily roast</p>
+                        </div>
+                        <span class="font-serif font-bold text-amber-700">£2.90</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-4">
+                        <div>
+                            <h4 class="font-bold text-stone-900">Signature Honeycomb Mocha</h4>
+                            <p class="text-xs text-stone-500">Espresso, rich dark chocolate & local honey</p>
+                        </div>
+                        <span class="font-serif font-bold text-amber-700">£4.10</span>
+                    </div>
+                    <div class="flex justify-between items-baseline pb-2">
+                        <div>
+                            <h4 class="font-bold text-stone-900">Loose-Leaf Loose Teas</h4>
+                            <p class="text-xs text-stone-500">Earl Grey, English Breakfast, Peppermint, Sencha</p>
+                        </div>
+                        <span class="font-serif font-bold text-amber-700">£3.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food & Bakery -->
+            <div class="bg-white p-8 md:p-10 rounded-3xl border border-stone-200 shadow-sm space-y-8">
+                <div class="flex items-center gap-4 border-b border-stone-100 pb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-600 text-white flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-croissant"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-900">Bakery & Kitchen</h3>
+                        <p class="text-xs text-stone-500">Freshly prepared throughout the morning.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-4">
+                        <div>
+                            <h4 class="font-bold text-stone-900">Avo & Chili Sourdough Toast</h4>
+                            <p class="text-xs text-stone-500">Smashed avocado, lime, chili flakes, toasted seeds</p>
+                        </div>
+                        <span class="font-serif font-bold text-amber-700">£7.50</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-4">
+                        <div>
+                            <h4 class="font-bold text-stone-900">Bacon & Mature Cheddar Toastie</h4>
+                            <p class="text-xs text-stone-500">On thick fermented sourdough with house relish</p>
+                        </div>
+                        <span class="font-serif font-bold text-amber-700">£8.20</span>
+                    </div>
+                    <div class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-4">
+                        <div>
+                            <h4 class="font-bold text-stone-900">Almond Croissant / Butter Pastry</h4>
+                            <p class="text-xs text-stone-500">Flaky, golden, baked fresh at dawn</p>
+                        </div>
+                        <span class="font-serif font-bold text-amber-700">£3.80</span>
+                    </div>
+                    <div class="flex justify-between items-baseline pb-2">
+                        <div>
+                            <h4 class="font-bold text-stone-900">Daily Homemade Cake Slice</h4>
+                            <p class="text-xs text-stone-500">Lemon drizzle, carrot cake, or chocolate fudge</p>
+                        </div>
+                        <span class="font-serif font-bold text-amber-700">£4.50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atmosphere Photo Gallery -->
+    <section id="atmosphere" class="py-20 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-6 mb-12 text-center space-y-3">
+            <span class="text-amber-750 font-semibold text-xs tracking-widest uppercase">Inside The Hive</span>
+            <h2 class="font-serif text-3xl font-bold text-stone-900">A Warm Space to Unwind</h2>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="rounded-2xl overflow-hidden shadow-md h-72">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=800" alt="Pouring coffee" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-md h-72">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" alt="Coffee shop atmosphere" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-md h-72">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800" alt="Pastries and coffee" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit & Contact Section -->
+    <section id="visit" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="bg-stone-900 text-white rounded-3xl p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-amber-400 text-xs font-semibold tracking-widest uppercase">Drop In Today</span>
+                <h2 class="font-serif text-4xl font-bold">Visit The Bean Hive</h2>
+                <p class="text-stone-300 font-light leading-relaxed">
+                    Whether you're grabbing your morning flat white on the commute or settling in with a laptop for the afternoon, our doors are open.
+                </p>
+
+                <div class="space-y-4 pt-2">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-600/30 text-amber-400 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Location</h4>
+                            <p class="text-stone-300 text-sm">44 Baddow Road, Chelmsford, Essex, CM2 0DG</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-600/30 text-amber-400 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Opening Hours</h4>
+                            <p class="text-stone-300 text-sm">Monday – Friday: 7:30 AM – 4:30 PM<br>Saturday – Sunday: 8:00 AM – 5:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-600/30 text-amber-400 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Enquiries</h4>
+                            <p class="text-stone-300 text-sm">hello@thebeanhivechelmsford.co.uk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white text-stone-800 p-8 rounded-2xl shadow-xl space-y-6">
+                <h3 class="font-serif text-2xl font-bold text-stone-900">Send an Enquiry</h3>
+                <p class="text-xs text-stone-500">Looking to order large pastry boxes or table bookings? Drop us a line.</p>
+                
+                <form onsubmit="event.preventDefault(); alert('Message sent successfully to The Bean Hive team!');" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Your Name</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-600 text-sm" placeholder="e.g. Sarah Jenkins">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Email Address</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-600 text-sm" placeholder="sarah@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Message</label>
+                        <textarea rows="3" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-600 text-sm" placeholder="Hi, I'd like to ask about..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-medium transition-colors shadow-md">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-mug-hot text-xs"></i>
+                </div>
+                <span class="font-serif text-lg font-bold text-white">The Bean Hive</span>
+            </div>
+            <p class="text-xs text-stone-500">© 2025 The Bean Hive (Chelmsford). All rights reserved. Built by O.T.I.S. Agency Studio.</p>
+            <div class="flex items-center gap-6 text-stone-300">
+                <a href="#" class="hover:text-amber-500 transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="#" class="hover:text-amber-500 transition-colors"><i class="fa-brands fa-facebook text-lg"></i></a>
+                <a href="#" class="hover:text-amber-500 transition-colors"><i class="fa-brands fa-tripadvisor text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function mobileMenuToggle() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

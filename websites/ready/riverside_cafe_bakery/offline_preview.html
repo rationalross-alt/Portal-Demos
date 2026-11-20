@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riverside Cafe and Bakery | Artisan Bakes & River Views</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FBF9F5; color: #2C2A29; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#FBF9F5] text-[#2C2A29] selection:bg-[#3B5339] selection:text-white">
+    <!-- Top Notice Banner -->
+    <div class="bg-[#3B5339] text-[#FBF9F5] font-medium text-xs tracking-wide py-2 px-4 text-center">
+        PHOTOGRAPHY NOTICE: Images shown are temporary mood placeholders. Custom local photographer shoots or client-supplied assets integrated upon onboarding.
+    </div>
+
+    <!-- Floating Top Bar Navigation -->
+    <header class="sticky top-0 z-50 bg-[#FBF9F5]/90 backdrop-blur-md border-b border-[#E5E0D8]">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="#" class="font-serif text-2xl font-bold text-[#3B5339] tracking-wide">
+                Riverside <span class="font-light italic text-[#7A8B78]">Cafe & Bakery</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-10 text-sm font-medium text-[#555]">
+                <a href="#bakery" class="hover:text-[#3B5339] transition">Fresh Bakes</a>
+                <a href="#menu" class="hover:text-[#3B5339] transition">Lunch Menu</a>
+                <a href="#river" class="hover:text-[#3B5339] transition">The Terrace</a>
+            </nav>
+            <a href="#visit" class="bg-[#3B5339] hover:bg-[#2d402b] text-white font-medium px-6 py-3 rounded-full text-sm transition shadow-sm">
+                Table Reservation
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section: Organic Flow with Floating Badge -->
+    <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+            <div class="lg:col-span-6 space-y-6">
+                <div class="inline-block bg-[#EFECE6] text-[#3B5339] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest border border-[#E2DDD5]">
+                    Est. Riverside Artisan
+                </div>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold tracking-tight text-[#2C2A29] leading-[1.1]">
+                    Fresh bread, river views & <span class="italic font-normal text-[#3B5339]">slow mornings.</span>
+                </h1>
+                <p class="text-[#666] text-lg max-w-lg font-light leading-relaxed">
+                    Handcrafted sourdough baked before dawn, artisanal pastries, and specialty coffee served right on the water's edge.
+                </p>
+                <div class="pt-4 flex items-center gap-4">
+                    <a href="#menu" class="bg-[#3B5339] text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-[#2d402b] transition shadow-md">
+                        Explore Our Bakes
+                    </a>
+                    <a href="#visit" class="border border-[#3B5339]/30 text-[#3B5339] px-8 py-4 rounded-full text-sm font-medium hover:bg-[#3B5339]/5 transition">
+                        Plan Your Visit
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4 pt-12">
+                        <div class="h-64 rounded-3xl overflow-hidden shadow-lg border border-[#E5E0D8]">
+                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800" alt="Bakery Bread" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="h-80 rounded-3xl overflow-hidden shadow-lg border border-[#E5E0D8]">
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" alt="Cafe Terrace" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bakery Specials Section -->
+    <section id="bakery" class="py-24 bg-[#F2EFE9] border-y border-[#E5E0D8]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-[#3B5339] text-xs font-mono uppercase tracking-widest">Fresh From The Ovens</span>
+                <h2 class="font-serif text-4xl font-bold text-[#2C2A29]">Morning Bakery & Pastries</h2>
+                <p class="text-[#666] text-sm">Baked fresh every morning using organic stoneground flours and French butter.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[#FBF9F5] p-8 rounded-2xl border border-[#E5E0D8] space-y-4 shadow-sm">
+                    <div class="h-48 rounded-xl overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=600" alt="Croissant" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-serif text-xl font-bold text-[#2C2A29]">Almond Croissant</h3>
+                        <span class="text-[#3B5339] font-semibold">£3.80</span>
+                    </div>
+                    <p class="text-[#666] text-sm">Twice-baked with rich frangipane filling and toasted almond flakes.</p>
+                </div>
+                <div class="bg-[#FBF9F5] p-8 rounded-2xl border border-[#E5E0D8] space-y-4 shadow-sm">
+                    <div class="h-48 rounded-xl overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80&w=600" alt="Sourdough" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-serif text-xl font-bold text-[#2C2A29]">Country Sourdough Loaf</h3>
+                        <span class="text-[#3B5339] font-semibold">£4.50</span>
+                    </div>
+                    <p class="text-[#666] text-sm">36-hour slow fermentation with a crisp dark crust and open crumb.</p>
+                </div>
+                <div class="bg-[#FBF9F5] p-8 rounded-2xl border border-[#E5E0D8] space-y-4 shadow-sm">
+                    <div class="h-48 rounded-xl overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&q=80&w=600" alt="Cinnamon Bun" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-serif text-xl font-bold text-[#2C2A29]">Cardamom & Cinnamon Bun</h3>
+                        <span class="text-[#3B5339] font-semibold">£4.20</span>
+                    </div>
+                    <p class="text-[#666] text-sm">Swirled with fragrant crushed cardamom, butter, and raw muscovado sugar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#2C2A29] text-[#FBF9F5] py-16 text-sm">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-b border-[#444] pb-12">
+            <div>
+                <h3 class="font-serif text-2xl font-bold">Riverside Cafe and Bakery</h3>
+                <p class="text-gray-400 mt-2 text-xs"> Artisan bakes & specialty coffee by the water.</p>
+            </div>
+            <div class="text-md md:text-right text-gray-300">
+                <p>Open Daily: 7:30 AM – 4:30 PM</p>
+                <p class="text-xs text-gray-500 mt-1">Riverside Walk, Essex</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+            <p>&copy; 2025 Riverside Cafe and Bakery. All rights reserved.</p>
+            <p>Photography Notice: Temporary mood placeholders. Custom shoots available upon onboarding. Powered by O.T.I.S. Agency Services.</p>
+        </div>
+    </footer>
+</body>
+</html>

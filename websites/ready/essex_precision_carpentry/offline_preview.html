@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essex Precision Carpentry | Bespoke Joinery & Fitted Furniture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #161A1D;
+            --brass: #C5A059;
+            --brass-light: #E2C78A;
+            --cream: #F8F6F0;
+            --stone: #E5E0D5;
+            --white: #FFFFFF;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta+Sans', sans-serif; background-color: var(--charcoal); color: var(--cream); line-height: 1.6; }
+        
+        /* Navigation */
+        nav { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(22, 26, 29, 0.9); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(197, 160, 89, 0.2); }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700; color: var(--brass); letter-spacing: 2px; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--cream); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--brass); }
+        .cta-btn { background: var(--brass); color: var(--charcoal); padding: 10px 24px; font-weight: 600; font-size: 0.9rem; border-radius: 2px; text-decoration: none; transition: background 0.3s; }
+        .cta-btn:hover { background: var(--brass-light); }
+
+        /* Hero Split */
+        .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; padding-top: 80px; }
+        .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 80px 10%; background: var(--charcoal); }
+        .hero-tag { font-family: 'Cinzel', serif; color: var(--brass); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 3.2rem; line-height: 1.15; margin-bottom: 25px; color: var(--white); font-weight: 500; }
+        .hero h1 span { color: var(--brass); font-style: italic; }
+        .hero p { color: var(--stone); font-size: 1.05rem; margin-bottom: 40px; font-weight: 300; }
+        .hero-actions { display: flex; gap: 20px; align-items: center; }
+        .hero-image { background: url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; min-height: 500px; position: relative; }
+        .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--charcoal), transparent); }
+
+        /* Craftsmanship Grid */
+        .craft { padding: 100px 5%; background: #1B2024; }
+        .section-header { text-align: center; max-width: 600px; margin: 0 auto 70px; }
+        .section-header h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--white); margin-bottom: 15px; }
+        .section-header p { color: var(--stone); }
+        .craft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .craft-card { background: var(--charcoal); border: 1px solid rgba(197, 160, 89, 0.2); padding: 40px 30px; transition: transform 0.3s, border-color 0.3s; }
+        .craft-card:hover { transform: translateY(-5px); border-color: var(--brass); }
+        .craft-card h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--brass); margin-bottom: 15px; }
+        .craft-card p { color: var(--stone); font-size: 0.95rem; font-weight: 300; }
+
+        /* Portfolio Showcase */
+        .portfolio { padding: 100px 5%; background: var(--charcoal); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .portfolio-item { position: relative; height: 450px; overflow: hidden; border: 1px solid rgba(197, 160, 89, 0.2); }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .portfolio-item:hover img { transform: scale(1.05); }
+        .portfolio-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(to top, rgba(22,26,29,0.95), transparent); }
+        .portfolio-overlay span { color: var(--brass); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-family: 'Cinzel', serif; }
+        .portfolio-overlay h3 { color: var(--white); font-family: 'Cinzel', serif; font-size: 1.5rem; margin-top: 5px; }
+
+        /* Footer & Onboarding Notice */
+        footer { background: #111417; padding: 60px 5% 40px; border-top: 1px solid rgba(197, 160, 89, 0.2); text-align: center; }
+        .footer-logo { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--brass); margin-bottom: 20px; letter-spacing: 3px; }
+        .footer-text { color: var(--stone); font-size: 0.9rem; max-width: 700px; margin: 0 auto 30px; font-weight: 300; }
+        .onboarding-badge { display: inline-block; background: rgba(197, 160, 89, 0.1); border: 1px solid var(--brass); padding: 10px 20px; color: var(--brass); font-size: 0.85rem; margin-bottom: 30px; letter-space: 1px; }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-image { display: none; }
+            .craft-grid, .portfolio-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Essex Precision</div>
+        <ul class="nav-links">
+            <li><a href="#craft">Specialisms</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#process">The Process</a></li>
+        </ul>
+        <a href="#contact" class="cta-btn">Book Consultation</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Springfield, Chelmsford</span>
+            <h1>Bespoke Joinery & <span>Exquisite</span> Fitted Furniture</h1>
+            <p>Handcrafted wardrobes, architectural media walls, and bespoke cabinetry crafted for discerning Essex homeowners.</p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="cta-btn">View Recent Work</a>
+            </div>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <section class="craft" id="craft">
+        <div class="section-header">
+            <h2>Master Joinery & Cabinetry</h2>
+            <p>Every piece is individually designed, manufactured in our Springfield workshop, and fitted with absolute precision.</p>
+        </div>
+        <div class="craft-grid">
+            <div class="craft-card">
+                <h3>Fitted Wardrobes</h3>
+                <p>Floor-to-ceiling handcrafted wardrobes designed around your exact storage requirements and room aesthetics.</p>
+            </div>
+            <div class="craft-card">
+                <h3>Media & Wall Units</h3>
+                <p>Integrated entertainment walls combining concealed cable management, ambient lighting, and bespoke shelving.</p>
+            </div>
+            <div class="craft-card">
+                <h3>Architectural Joinery</h3>
+                <p>Custom panelling, radiator covers, libraries, and bespoke doors tailored for period and modern properties.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <h2>Recent Essex Commissions</h2>
+            <p>A selection of our latest fitted installations across Chelmsford, Danbury, and surrounding villages.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80" alt="Walk-in Wardrobe">
+                <div class="portfolio-overlay">
+                    <span>Chelmsford</span>
+                    <h3>Shaker-Style Walk-In Wardrobe</h3>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80" alt="Media Wall">
+                <div class="portfolio-overlay">
+                    <span>Springfield</span>
+                    <h3>Walnut Media & Fireplace Unit</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Essex Precision Carpentry</div>
+        <div class="onboarding-badge">
+            * All imagery is temporary & fully customisable with local professional photography support. Ongoing maintenance & updates: £45/mo.
+        </div>
+        <p class="footer-text">Serving Chelmsford, Writtle, Great Baddow, and prime Essex locations.</p>
+        <p style="color: #666; font-size: 0.8rem;">&copy; 2025 Essex Precision Carpentry. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

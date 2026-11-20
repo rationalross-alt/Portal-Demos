@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botanical Garden Cafe | Artisan Eats in Greenhouse Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --botanical-dark: #1A2F23;
+            --leaf-green: #2E5A44;
+            --gold-accent: #C5A059;
+            --cream-bg: #F9F8F4;
+            --white: #FFFFFF;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--cream-bg); color: var(--botanical-dark); line-height: 1.6; }
+        
+        header {
+            background: rgba(26,47,35,0.95);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197,160,89,0.3);
+        }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: 0.5px; color: var(--white); }
+        .logo span { color: var(--gold-accent); font-style: italic; }
+        nav { display: flex; gap: 2.5rem; align-items: center; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; letter-spacing: 0.5px; transition: color 0.2s; }
+        nav a:hover { color: var(--gold-accent); }
+        .cta-btn { background: var(--gold-accent); color: var(--botanical-dark); padding: 0.75rem 1.6rem; font-weight: 600; text-decoration: none; border-radius: 50px; font-size: 0.95rem; transition: background 0.2s; }
+        .cta-btn:hover { background: #d6af66; }
+
+        .hero {
+            background: linear-gradient(rgba(26,47,35,0.65), rgba(26,47,35,0.65)), url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: var(--white);
+            padding: 9rem 6% 8rem;
+            text-align: center;
+        }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.8rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.1; }
+        .hero h1 span { color: var(--gold-accent); font-style: italic; }
+        .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 2.5rem; color: #E5E7EB; }
+
+        .features {
+            padding: 6rem 6%;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(26,47,35,0.04);
+            border: 1px solid rgba(46,90,68,0.1);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--botanical-dark); margin-bottom: 1rem; }
+        .feature-card p { color: #52635A; font-size: 1rem; }
+
+        .notice-banner {
+            background: #F0F4F1;
+            border-left: 4px solid var(--leaf-green);
+            padding: 1.5rem 6%;
+            margin: 0 6% 4rem;
+            font-size: 0.95px;
+            color: var(--botanical-dark);
+            border-radius: 0 8px 8px 0;
+        }
+
+        footer {
+            background: var(--botanical-dark);
+            color: var(--white);
+            padding: 4rem 6%;
+            text-align: center;
+            border-top: 1px solid rgba(197,160,89,0.2);
+        }
+        footer p { color: #9CA3AF; font-size: 0.9rem; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Botanical <span>Garden Cafe</span></div>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#greenhouse">The Greenhouse</a>
+            <a href="#events">Private Events</a>
+        </nav>
+        <a href="#book" class="cta-btn">Book a Table</a>
+    </header>
+
+    <section class="hero">
+        <div style="display: inline-block; background: rgba(197,160,89,0.2); border: 1px solid var(--gold-accent); padding: 0.4rem 1.2rem; border-radius: 30px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; color: var(--white);">🌿 Dine Amongst Exotic Flora</div>
+        <h1>Fresh Food & Botanical <span>Serenity.</span></h1>
+        <p>Escape to our glasshouse sanctuary. Enjoy botanical-infused teas, artisanal brunch dishes, and freshly baked cakes surrounded by lush greenery.</p>
+        <a href="#menu" class="cta-btn" style="padding: 1rem 2.5rem; font-size: 1.05rem;">Explore Seasonal Menu</a>
+    </section>
+
+    <section class="features" id="menu">
+        <div class="feature-card">
+            <h3>Botanical Brunch</h3>
+            <p>Locally sourced organic produce crafted into vibrant brunch plates, artisan avocado toasts, and house-baked pastries.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Greenhouse Teas</h3>
+            <p>Hand-blended botanical herbal infusions, rare loose-leaf teas, and single-origin specialty coffees served in serene surroundings.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Private Gatherings</h3>
+            <p>Host your intimate celebrations, afternoon teas, and evening suppers immersed in our breathtaking plant-filled conservatory.</p>
+        </div>
+    </section>
+
+    <div class="notice-banner">
+        <strong>📸 Onboarding & Custom Photography Note:</strong> Imagery utilised in this preview is temporary placeholder stock. Professional on-site commercial photography packages are available upon request to capture your exact glasshouse architecture, botanical displays, and signature dishes.
+    </div>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 1rem;">Botanical <span>Garden Cafe</span></div>
+        <p>© 2025 Botanical Garden Cafe. All rights reserved. Powered by O.T.I.S. Agency Services.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #9CA3AF;">Includes Managed Growth & Maintenance Tier (£45/mo).</p>
+    </footer>
+
+</body>
+</html>

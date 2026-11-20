@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writtle Green Cafe | Historic Village Dining & Artisan Bakery</title>
+    <meta name="description" content="Experience quintessential English village charm at Writtle Green Cafe. Fresh pastries, organic coffees, and seasonal brunch on the historic Essex green.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        writtleGreen: '#23382B',
+                        writtleGold: '#C59B27',
+                        writtleParchment: '#FAF8F4',
+                        writtleCharcoal: '#1A211D',
+                        writtleTerracotta: '#A35235'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-writtleParchment text-writtleCharcoal font-sans antialiased selection:bg-writtleGold selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <aside aria-label="Notice" class="bg-writtleGreen text-writtleParchment text-xs py-2 px-4 text-center font-medium tracking-wide">
+        <span>📸 <strong>Agency Prototype Notice:</strong> Imagery shown is temporary mood placeholders. Custom local photography or client assets integrated upon onboarding.</span>
+    </aside>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-writtleParchment/90 backdrop-blur-md border-b border-writtleGreen/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-full bg-writtleGreen flex items-center justify-center text-writtleGold font-serif font-bold text-xl group-hover:scale-105 transition-transform">W</div>
+                <div>
+                    <span class="font-serif font-bold text-2xl tracking-tight text-writtleGreen block leading-none">Writtle Green</span>
+                    <span class="text-[10px] tracking-widest uppercase font-semibold text-writtleGold block mt-1">Cafe &amp; Bakery</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-writtleCharcoal">
+                <a href="#about" class="hover:text-writtleGold transition-colors">Heritage</a>
+                <a href="#menu" class="hover:text-writtleGold transition-colors">Menu</a>
+                <a href="#gallery" class="hover:text-writtleGold transition-colors">Atmosphere</a>
+                <a href="#visit" class="hover:text-writtleGold transition-colors">Find Us</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="#visit" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-writtleGreen text-white text-sm font-medium hover:bg-writtleGreen/95 transition-all shadow-sm">
+                    Book a Table
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section: Editorial Split Grid (Unique to Writtle Green) -->
+    <section class="relative min-h-[85vh] flex items-center py-16 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-writtleGreen/10 text-writtleGreen text-xs font-semibold tracking-wide uppercase">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Overlooking the Historic Essex Green
+                </div>
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-writtleGreen leading-[1.08]">
+                    Tradition &amp; Taste on the Green.
+                </h1>
+                <p class="text-lg text-writtleCharcoal/80 max-w-xl font-light leading-relaxed">
+                    Welcome to Writtle's community heart. Serving artisanal coffees, freshly baked morning pastries, and seasonal garden brunches crafted from local Essex produce.
+                </p>
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <a href="#menu" class="px-7 py-3.5 rounded-full bg-writtleGreen text-white font-medium hover:bg-writtleGreen/90 transition-all shadow-md">
+                        Explore Our Menu
+                    </a>
+                    <a href="#visit" class="px-7 py-3.5 rounded-full border border-writtleGreen/30 text-writtleGreen font-medium hover:bg-writtleGreen/5 transition-all">
+                        Opening Hours
+                    </a>
+                </div>
+                <div class="pt-6 border-t border-writtleGreen/10 flex items-center gap-6 text-sm text-writtleCharcoal/70">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="star" class="w-4 h-4 fill-writtleGold text-writtleGold"></i>
+                        <span class="font-semibold text-writtleCharcoal">4.9 / 5.0</span> Local Rating
+                    </div>
+                    <div>• Artisan Bakery Daily</div>
+                    <div>• Dog Friendly Terrace</div>
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative">
+                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5]">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80" alt="Writtle Green Cafe exterior and seating" class="w-full h-full object-cover">
+                </div>
+                <!-- Floating Accent Badge -->
+                <div class="absolute -bottom-6 -left-6 z-20 bg-writtleCharcoal text-white p-6 rounded-2xl shadow-xl max-w-xs border border-writtleGold/30">
+                    <p class="font-serif text-xl italic text-writtleGold mb-1">"The best spot in Essex for coffee and quiet reflection."</p>
+                    <p class="text-xs text-white/70 uppercase tracking-widest">— Essex Life Magazine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage & About Section -->
+    <section id="about" class="py-20 bg-white border-y border-writtleGreen/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="space-y-4 p-8 rounded-2xl bg-writtleParchment border border-writtleGreen/10">
+                    <div class="w-12 h-12 rounded-xl bg-writtleGreen text-writtleGold flex items-center justify-center">
+                        <i data-lucide="coffee" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-writtleGreen">Artisanal Roasts</h3>
+                    <p class="text-writtleCharcoal/70 text-sm leading-relaxed">
+                        Ethically sourced specialty beans roasted to perfection, delivering rich notes of chocolate, caramel, and bright berry finish.
+                    </p>
+                </div>
+                <div class="space-y-4 p-8 rounded-2xl bg-writtleParchment border border-writtleGreen/10">
+                    <div class="w-12 h-12 rounded-xl bg-writtleGreen text-writtleGold flex items-center justify-center">
+                        <i data-lucide="cake" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-writtleGreen">Bakehouse Fresh</h3>
+                    <p class="text-writtleCharcoal/70 text-sm leading-relaxed">
+                        Sourdough breads, flaky croissants, and decadent Victoria sponges baked fresh every morning by our master pastry team.
+                    </p>
+                </div>
+                <div class="space-y-4 p-8 rounded-2xl bg-writtleParchment border border-writtleGreen/10">
+                    <div class="w-12 h-12 rounded-xl bg-writtleGreen text-writtleGold flex items-center justify-center">
+                        <i data-lucide="utensils" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-writtleGreen">Seasonal Kitchen</h3>
+                    <p class="text-writtleCharcoal/70 text-sm leading-relaxed">
+                        Hearty brunch classics, smashed avocado on sourdough, and comforting soups made with ingredients from Essex growers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Showcase -->
+    <section id="menu" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <span class="text-xs font-semibold uppercase tracking-widest text-writtleGold">Handcrafted Daily</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-bold text-writtleGreen">From Our Kitchen &amp; Bar</h2>
+            <p class="text-writtleCharcoal/70">A curated selection of morning favorites, hearty lunches, and velvety specialty drinks.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Coffee & Drinks -->
+            <div class="bg-white p-8 rounded-3xl border border-writtleGreen/10 shadow-sm space-y-8">
+                <div class="flex items-center justify-between border-b border-writtleGreen/10 pb-4">
+                    <h3 class="font-serif text-3xl font-bold text-writtleGreen flex items-center gap-3">
+                        <i data-lucide="cup-soda" class="w-7 h-7 text-writtleGold"></i> Specialty Drinks
+                    </h3>
+                    <span class="text-xs uppercase tracking-widest font-semibold text-writtleGold">Hot &amp; Iced</span>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-start gap-4 pb-4 border-b border-dashed border-writtleCharcoal/10">
+                        <div>
+                            <h4 class="font-bold text-writtleCharcoal">Signature Green Flat White</h4>
+                            <p class="text-xs text-writtleCharcoal/60 mt-1">Double ristretto, textured oat milk, subtle honey finish.</p>
+                        </div>
+                        <span class="font-serif font-bold text-lg text-writtleGreen">£3.80</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-4 pb-4 border-b border-dashed border-writtleCharcoal/10">
+                        <div>
+                            <h4 class="font-bold text-writtleCharcoal">Single Origin Pour-Over</h4>
+                            <p class="text-xs text-writtleCharcoal/60 mt-1">Rotating seasonal bean from ethical cooperative growers.</p>
+                        </div>
+                        <span class="font-serif font-bold text-lg text-writtleGreen">£4.20</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-4 pb-4 border-b border-dashed border-writtleCharcoal/10">
+                        <div>
+                            <h4 class="font-bold text-writtleCharcoal">Writtle Chai Spiced Latte</h4>
+                            <p class="text-xs text-writtleCharcoal/60 mt-1">House-brewed Assam tea, cinnamon, cardamom, steamed milk.</p>
+                        </div>
+                        <span class="font-serif font-bold text-lg text-writtleGreen">£3.95</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <h4 class="font-bold text-writtleCharcoal">Iced Matcha Ceremonial Grade</h4>
+                            <p class="text-xs text-writtleCharcoal/60 mt-1">Uji green tea whisked smooth over crystal clear ice.</p>
+                        </div>
+                        <span class="font-serif font-bold text-lg text-writtleGreen">£4.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brunch & Bakery -->
+            <div class="bg-white p-8 rounded-3xl border border-writtleGreen/10 shadow-sm space-y-8">
+                <div class="flex items-center justify-between border-b border-writtleGreen/10 pb-4">
+                    <h3 class="font-serif text-3xl font-bold text-writtleGreen flex items-center gap-3">
+                        <i data-lucide="sandwich" class="w-7 h-7 text-writtleGold"></i> Brunch &amp; Bakery
+                    </h3>
+                    <span class="text-xs uppercase tracking-widest font-semibold text-writtleGold">Fresh Daily</span>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-start gap-4 pb-4 border-b border-dashed border-writtleCharcoal/10">
+                        <div>
+                            <h4 class="font-bold text-writtleCharcoal">Smashed Avocado &amp; Feta Toast</h4>
+                            <p class="text-xs text-writtleCharcoal/60 mt-1">Poached free-range eggs, chili flakes, toasted sourdough.</p>
+                        </div>
+                        <span class="font-serif font-bold text-lg text-writtleGreen">£9.50</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-4 pb-4 border-b border-dashed border-writtleCharcoal/10">
+                        <div>
+                            <h4 class="font-bold text-writtleCharcoal">Writtle Green Breakfast Roll</h4>
+                            <p class="text-xs text-writtleCharcoal/60 mt-1">Local Cumberland sausage, smoked bacon, fried egg, brioche bun.</p>
+                        </div>
+                        <span class="font-serif font-bold text-lg text-writtleGreen">£8.90</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-4 pb-4 border-b border-dashed border-writtleCharcoal/10">
+                        <div>
+                            <h4 class="font-bold text-writtleCharcoal">Almond Croissant</h4>
+                            <p class="text-xs text-writtleCharcoal/60 mt-1">Twice-baked buttery pastry stuffed with rich frangipane.</p>
+                        </div>
+                        <span class="font-serif font-bold text-lg text-writtleGreen">£3.90</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <h4 class="font-bold text-writtleCharcoal">Seasonal Berry French Toast</h4>
+                            <p class="text-xs text-writtleCharcoal/60 mt-1">Brioche, maple syrup, mascarpone cream, fresh summer berries.</p>
+                        </div>
+                        <span class="font-serif font-bold text-lg text-writtleGreen">£10.20</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit / Hours & Location -->
+    <section id="visit" class="py-20 bg-writtleGreen text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-writtleGold">Plan Your Visit</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold">Come Sit on the Green.</h2>
+                    <p class="text-white/80 leading-relaxed font-light">
+                        Located right in the heart of Writtle village square. Whether you're stopping by after a morning dog walk or settling in with a book, our doors are always open.
+                    </p>
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-writtleGold">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Opening Hours</h4>
+                                <p class="text-sm text-white/70">Monday – Saturday: 8:00 AM – 5:00 PM</p>
+                                <p class="text-sm text-white/70">Sunday: 8:30 AM – 4:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-writtleGold">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Location</h4>
+                                <p class="text-sm text-white/70">The Green, Writtle, Chelmsford CM1 3EE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-writtleCharcoal p-8 rounded-3xl border border-writtleGold/20 shadow-2xl space-y-6">
+                    <h3 class="font-serif text-2xl font-bold text-white">Reserve a Table or Enquiry</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your inquiry has been received. We look forward to welcoming you to Writtle Green Cafe.');">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-white/60 mb-1">Your Name</label>
+                            <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-writtleGold" placeholder="Jane Doe">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-white/60 mb-1">Date</label>
+                                <input type="date" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-writtleGold">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-white/60 mb-1">Guests</label>
+                                <select class="w-full bg-writtleCharcoal border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-writtleGold">
+                                    <option>1 Person</option>
+                                    <option selected>2 People</option>
+                                    <option>3-4 People</option>
+                                    <option>5+ People (Group)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-white/60 mb-1">Special Requests</label>
+                            <textarea rows="3" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-writtleGold" placeholder="Dietary notes or seating preference..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-writtleGold text-writtleCharcoal font-bold hover:bg-writtleGold/90 transition-all shadow-lg">
+                            Request Table Reservation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-writtleCharcoal text-white/70 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <span class="font-serif font-bold text-xl text-white block">Writtle Green Cafe &amp; Bakery</span>
+                <p class="text-xs text-white/50 mt-1">Historic Village Dining in Essex, UK.</p>
+            </div>
+            <div class="text-xs text-white/50 max-w-md text-center md:text-right space-y-1">
+                <p>Photography Notice: Imagery shown is temporary mood placeholders. Custom local photography or client-supplied assets integrated upon onboarding.</p>
+                <p class="text-writtleGold">Managed Growth &amp; Maintenance Plan (£750 + £45/mo active partner tier).</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
